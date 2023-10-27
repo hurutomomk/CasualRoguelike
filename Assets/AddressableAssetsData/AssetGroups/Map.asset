@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Map
+  m_EditorClassIdentifier: 
+  m_GroupName: Map
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 394d60f85f0470a478f750ef57346875
+  m_SerializeEntries:
+  - m_GUID: e1606457749bf55468fbd6fcef3d7263
+    m_Address: Map_00_E
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 56c83034621e11e4e819d7d89a9d0d83
+    m_Address: Map_00_ES
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e866b3de27ee3704bb444bdd11e328c7
+    m_Address: Map_00_ESW
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1083371cbc6205a4bb3a0dc22fc61e6e
+    m_Address: Map_00_EW
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 551a6ba4fd214dd4baf530d8babf306c
+    m_Address: Map_00_N
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ef437b44deca9c742a865001bddf8e5a
+    m_Address: Map_00_NE
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 31f70e1b8e80eae4793fe51dc48f8cc0
+    m_Address: Map_00_NES
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cb5511d69b9d40d488aae2156fd52428
+    m_Address: Map_00_NESW
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c13c37641372a11439cfcc44cbf68179
+    m_Address: Map_00_NEW
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a2b223edec0107d408677c0c15af14dc
+    m_Address: Map_00_NS
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cdd9837130c74af47a4e36aee3058e8f
+    m_Address: Map_00_NSW
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 93ff664a2b8548a42ae6a0f6a2c24308
+    m_Address: Map_00_NW
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a408074e2bb418f4dabb4d205bafe775
+    m_Address: Map_00_S
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e0dd9d93f821b9b46b5b61637da16c2d
+    m_Address: Map_00_SW
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 174db10033e126b46b16e504c9c88070
+    m_Address: Map_00_W
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 8c9575d5446178548bae59a594fcdcf9, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e701737c4ae9a6147af2082f4fc3e607, type: 2}
+    - {fileID: 11400000, guid: c907be4255a7de64db06d923f0260120, type: 2}
