@@ -261,6 +261,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7768470141866614098}
+  - component: {fileID: -473808266139835997}
+  - component: {fileID: -1393112788991811516}
   m_Layer: 0
   m_Name: Map_00_NES
   m_TagString: Untagged
@@ -286,6 +288,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-473808266139835997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3808534952859377030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b67fd1f2f61fd44d8c2acb4481e556b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasNorthDoor: 1
+  hasEastDoor: 1
+  hasSouthDoor: 1
+  hasWestDoor: 0
+  mapCollectNum: 1
+  mapDoorCount: 3
+  mapLeftDoorCount: 3
+  haveMapDoneGenerating: 0
+  canMoveToNorth: 0
+  canMoveToEast: 0
+  canMoveToSouth: 0
+  canMoveToWest: 0
+  mapEventRoot: {fileID: 1120332948195062753}
+  mapSpriteRenderer: {fileID: 7177047761727057234}
+  mapOpenSprite: {fileID: 21300000, guid: a52e4f5042b16594ba043e9940ae3386, type: 3}
+  mapCorridorSprite_N: {fileID: 2012995250451679478}
+  mapCorridorSprite_E: {fileID: 434319153096214513}
+  mapCorridorSprite_S: {fileID: 2112317160198068785}
+  mapCorridorSprite_W: {fileID: 5842426857619573022}
+--- !u!114 &-1393112788991811516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3808534952859377030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f5e0647d971d649aacc951f9a3c276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapInfo: {fileID: -473808266139835997}
 --- !u!1 &5842426857619573022
 GameObject:
   m_ObjectHideFlags: 0

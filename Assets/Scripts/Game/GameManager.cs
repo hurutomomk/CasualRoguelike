@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void Title()
     {
-        
+        this.MapGeneratingSequence();
     }
     #endregion
     
@@ -94,7 +94,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void MapGeneratingSequence()
     {
-        
+        // Map生成開始
+        MapGeneratingManager.Instance.StartGenerating(MapGeneratingManager.Instance.WaitForMapGeneratingFinishAsync);
     }
     #endregion
     
