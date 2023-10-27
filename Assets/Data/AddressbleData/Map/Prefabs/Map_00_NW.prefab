@@ -376,6 +376,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3872862622102797120}
+  - component: {fileID: -8952085597763327660}
+  - component: {fileID: 497994743684781359}
   m_Layer: 0
   m_Name: Map_00_NW
   m_TagString: Untagged
@@ -401,6 +403,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8952085597763327660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7686140681990224788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b67fd1f2f61fd44d8c2acb4481e556b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasNorthDoor: 1
+  hasEastDoor: 0
+  hasSouthDoor: 0
+  hasWestDoor: 1
+  mapCollectNum: 1
+  mapDoorCount: 2
+  mapLeftDoorCount: 2
+  haveMapDoneGenerating: 0
+  canMoveToNorth: 0
+  canMoveToEast: 0
+  canMoveToSouth: 0
+  canMoveToWest: 0
+  mapEventRoot: {fileID: 809914939868326918}
+  mapSpriteRenderer: {fileID: 5612573412704114715}
+  mapOpenSprite: {fileID: 21300000, guid: 5431f791a72c16d429bc4115330bb2bc, type: 3}
+  mapCorridorSprite_N: {fileID: 3016600842922109147}
+  mapCorridorSprite_E: {fileID: 7991585765662889441}
+  mapCorridorSprite_S: {fileID: 4669100389041816238}
+  mapCorridorSprite_W: {fileID: 560837336973633107}
+--- !u!114 &497994743684781359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7686140681990224788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f5e0647d971d649aacc951f9a3c276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapInfo: {fileID: -8952085597763327660}
 --- !u!1 &7991585765662889441
 GameObject:
   m_ObjectHideFlags: 0
