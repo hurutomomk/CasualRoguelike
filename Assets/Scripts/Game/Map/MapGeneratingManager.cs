@@ -16,6 +16,12 @@ public class MapGeneratingManager : MonoBehaviour
     
     #region [02. reference]
     
+    /// <summary>
+    /// MapCollector
+    /// </summary>
+    [SerializeField]
+    private MapCollector mapCollector;
+    
     #endregion
     
     #region [03. map data]
@@ -97,7 +103,7 @@ public class MapGeneratingManager : MonoBehaviour
         var randomNum = UnityEngine.Random.Range(0, this.mapList.Count);
         var instancedMap = Instantiate(this.mapList[randomNum], this.mapRoot);
         // リストに追加
-        MapCollector.Instance.AddMapToList(instancedMap);
+        this.mapCollector.AddMapToList(instancedMap);
         
         onFinished?.Invoke();
     }
@@ -127,12 +133,12 @@ public class MapGeneratingManager : MonoBehaviour
     {
         while (!this.isMapGeneratingFinished)
         {
-            if (this.allDoorClosedMapCount == MapCollector.Instance.collectedMapList.Count)
+            if (this.allDoorClosedMapCount == this.mapCollector.collectedMapList.Count)
             {
                 // トリガーオフ
                 this.isMapGeneratingFinished = true;
                 
-                if (MapCollector.Instance.CurrentTotalMapCollectNum < maxTotalMapCollectNum)
+                if (this.mapCollector.CurrentTotalMapCollectNum < maxTotalMapCollectNum)
                     // マップ生成データリセット
                     this.ResetMapGeneratingData();
                 else
@@ -181,7 +187,7 @@ public class MapGeneratingManager : MonoBehaviour
         this.isMapGeneratingFinished = false;
         
         // MapCollectorのデータをリセット
-        MapCollector.Instance.ResetData();
+        this.mapCollector.ResetData();
 
         Debug.LogFormat("Reset Done ", DColor.cyan);
         // マップ生成再開

@@ -7,10 +7,22 @@ public class GameManager : MonoBehaviour
     #region [var]
 
     #region [01. Instance]
+    
     /// <summary>
     /// インスタンス
     /// </summary>
     public static GameManager Instance { get; private set; }
+    
+    #endregion
+
+    #region [01. Instance]
+    
+    /// <summary>
+    /// MapGeneratingManager
+    /// </summary>
+    [SerializeField]
+    private MapGeneratingManager mapGeneratingManager;
+    
     #endregion
     
     #endregion
@@ -95,7 +107,7 @@ public class GameManager : MonoBehaviour
     public void MapGeneratingSequence()
     {
         // Map生成開始
-        MapGeneratingManager.Instance.StartGenerating(MapGeneratingManager.Instance.WaitForMapGeneratingFinishAsync);
+        this.mapGeneratingManager.StartGenerating(this.mapGeneratingManager.WaitForMapGeneratingFinishAsync);
     }
     #endregion
     

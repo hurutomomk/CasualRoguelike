@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62790446f6bb904d9c712bc2c36bcb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapGeneratingManager: {fileID: 2006054378}
 --- !u!4 &304505508
 Transform:
   m_ObjectHideFlags: 0
@@ -341,6 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcdda2f1886c31b478416300917dcaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapCollector: {fileID: 2006054376}
   mapList:
   - {fileID: 217716811874762394, guid: e1606457749bf55468fbd6fcef3d7263, type: 3}
   - {fileID: 5130859782483103963, guid: 56c83034621e11e4e819d7d89a9d0d83, type: 3}
@@ -358,7 +360,7 @@ MonoBehaviour:
   - {fileID: 7633334798072688412, guid: e0dd9d93f821b9b46b5b61637da16c2d, type: 3}
   - {fileID: 3339456843835181415, guid: 174db10033e126b46b16e504c9c88070, type: 3}
   mapRoot: {fileID: 1715670720}
-  maxTotalMapCollectNum: 6
+  maxTotalMapCollectNum: 100
 --- !u!4 &2006054379
 Transform:
   m_ObjectHideFlags: 0
