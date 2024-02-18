@@ -16,13 +16,19 @@ public class GameManager : MonoBehaviour
     
     #endregion
 
-    #region [01. Instance]
+    #region [02. 参照]
     
     /// <summary>
     /// MapGeneratingManager
     /// </summary>
     [SerializeField]
     private MapGeneratingManager mapGeneratingManager;
+
+    /// <summary>
+    /// SpawnManager
+    /// </summary>
+    [SerializeField]
+    private SpawnManager spawnManager;
     
     #endregion
     
@@ -132,9 +138,10 @@ public class GameManager : MonoBehaviour
     public void SpawnSequence(Action onFinished)
     {
         // PlayerをSpawn
-        Debug.LogFormat("Time To Spawn Player", DColor.green);
-        
-        onFinished?.Invoke();
+        this.spawnManager.SpawnPlayerAtFirstTime(() =>
+        {
+            onFinished?.Invoke();
+        });
     } 
 
     #endregion
