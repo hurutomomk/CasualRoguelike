@@ -20,10 +20,6 @@ public class SpawnManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     private GameObject playerPrefab;
-    /// <summary>
-    /// Playerの座標
-    /// </summary>
-    private Vector3 playerPos;
     
     #endregion
     
@@ -64,7 +60,7 @@ public class SpawnManager : MonoBehaviour
             var playerObj = Instantiate(this.playerPrefab, this.playerRootTransform);
 
             // Playerの座標を記録
-            this.playerPos = mapInfo.transform.position;
+            playerObj.transform.position = mapInfo.transform.position;
             
             // 生成済みトリガー
             mapInfo.SetPlayerSpawnTriggerOn();
