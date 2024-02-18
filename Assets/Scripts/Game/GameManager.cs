@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -82,7 +83,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void Title()
     {
+        // 臨時
         this.MapGeneratingSequence();
+
+        // 臨時
+        this.TransitionEffectOnTitleToStage();
     }
     #endregion
     
@@ -94,7 +99,14 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void TransitionEffectOnTitleToStage()
     {
-        
+        this.mapGeneratingManager.MapGeneratingFinished(() =>
+        {
+            // Spawnシーケンス
+            this.SpawnSequence(() =>
+            {
+                Debug.LogFormat("Spawn Sequence Has Finished", DColor.cyan);
+            });
+        });
     }
     #endregion
     
@@ -113,7 +125,19 @@ public class GameManager : MonoBehaviour
     
 
     
-    
+    #region [05. Spawn Sequence]
+    /// <summary>
+    /// 各種GameObjectのSpawnシーケンス
+    /// </summary>
+    public void SpawnSequence(Action onFinished)
+    {
+        // PlayerをSpawn
+        Debug.LogFormat("Time To Spawn Player", DColor.green);
+        
+        onFinished?.Invoke();
+    } 
+
+    #endregion
     
     #endregion
 }
