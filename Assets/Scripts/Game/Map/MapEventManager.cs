@@ -31,10 +31,14 @@ public class MapEventManager : MonoBehaviour
             // DoorKeyを生成
             this.SetDoorKey(() =>
             {
-                // Shrineを生成
-                this.SetShrine(() =>
+                // Enemyを生成
+                this.SetEnemy(() =>
                 {
-                    onFinished?.Invoke();
+                    // Shrineを生成
+                    this.SetShrine(() =>
+                    {
+                        onFinished?.Invoke();
+                    });
                 });
             });
         });
@@ -74,7 +78,22 @@ public class MapEventManager : MonoBehaviour
     
     
     
-    #region [003. SetShrine]
+    #region [003. SetEnemy]
+    /// <summary>
+    /// Enemyを生成
+    /// </summary>
+    /// <param name="onFinished"></param>
+    private void SetEnemy(Action onFinished)
+    {
+        
+
+        onFinished?.Invoke();
+    }
+    #endregion
+    
+    
+    
+    #region [004. SetShrine]
     /// <summary>
     /// Shrineを生成
     /// </summary>
