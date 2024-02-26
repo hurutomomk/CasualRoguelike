@@ -23,12 +23,16 @@ public class GameManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     private MapGeneratingManager mapGeneratingManager;
-
     /// <summary>
     /// SpawnManager
     /// </summary>
     [SerializeField]
     private SpawnManager spawnManager;
+    /// <summary>
+    /// MapEventManager
+    /// </summary>
+    [SerializeField]
+    private MapEventManager mapEventManager;
     
     #endregion
     
@@ -158,9 +162,12 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void MapEventSettingSequence(Action onFinished)
     {
-        
-        
-        onFinished?.Invoke();
+        this.mapEventManager.SetEvent(() =>
+        {
+            
+            
+            onFinished?.Invoke();
+        });
     } 
 
     #endregion
