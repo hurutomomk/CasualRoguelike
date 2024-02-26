@@ -110,7 +110,11 @@ public class GameManager : MonoBehaviour
             // Spawnシーケンス
             this.SpawnSequence(() =>
             {
-                Debug.LogFormat("Spawn Sequence Has Finished", DColor.cyan);
+                // MapEvent Setting シーケンス
+                this.MapEventSettingSequence(() =>
+                {
+                    Debug.LogFormat("MapEvent Setting Sequence Has Finished", DColor.cyan);
+                });
             });
         });
     }
@@ -142,6 +146,21 @@ public class GameManager : MonoBehaviour
         {
             onFinished?.Invoke();
         });
+    } 
+
+    #endregion
+    
+    
+    
+    #region [06. MapEvent Setting Sequence]
+    /// <summary>
+    /// 各種GameObjectのSpawnシーケンス
+    /// </summary>
+    public void MapEventSettingSequence(Action onFinished)
+    {
+        
+        
+        onFinished?.Invoke();
     } 
 
     #endregion
