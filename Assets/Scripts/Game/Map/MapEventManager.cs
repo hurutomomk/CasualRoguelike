@@ -29,6 +29,11 @@ public class MapEventManager : MonoBehaviour
     [SerializeField]
     private GameObject shrinePrefab;
 
+    /// <summary>
+    /// ExitDoorOpen関連
+    /// </summary>
+    private MapEventController exitDoorMapEventController;
+    
     #endregion
     
     
@@ -80,7 +85,40 @@ public class MapEventManager : MonoBehaviour
     /// <param name="onFinished"></param>
     private void SetExitDoor(Action onFinished)
     {
+        // Map選定
+        var collectedMapList = MapCollector.Instance.collectedMapList;
         
+        for (int num = 0; num < 1; num++)
+        {
+            // Map選定
+            var randomNum = UnityEngine.Random.Range(0, collectedMapList.Count);
+            var mapInfo = collectedMapList[randomNum].GetComponent<MapInfo>();
+            
+            // PlayerがSpawnしているMapか、既にMapEventが生成されたMapだった場合、やり直し
+            if (mapInfo.IsPlayerAlreadySpawned || mapInfo.IsMapEventSet)
+            {
+                num -= 1;
+                continue;
+            }
+            
+            // PlayerがSpawnされていない、且、MapEventが生成されていない場合
+            if(!mapInfo.IsPlayerAlreadySpawned && !mapInfo.IsMapEventSet)
+            {
+                // ExitDoorを生成
+                var exitDoorObj = Instantiate(this.exitDoorPrefab, mapInfo.MapEventRoot);
+                // ExitDoorのMapEventControllerを個別に記録
+                this.exitDoorMapEventController = exitDoorObj.GetComponent<MapEventController>();
+                
+                // セット済みトリガー
+                mapInfo.SetMapEventSettingTriggerOn();
+                // MapをOpenStateに変更
+                mapInfo.SetMapSpriteToOpenState();
+                // MapEventControllerをセット
+                mapInfo.SetMapEventController(this.exitDoorMapEventController);
+                // MapのGameObject名の後ろにEvent名を追加
+                mapInfo.SetEventNameOnMapName("ExitDoor");
+            }
+        }
 
         onFinished?.Invoke();
     }
