@@ -34,6 +34,12 @@ public class MapEventManager : MonoBehaviour
     /// </summary>
     private MapEventController exitDoorMapEventController;
     
+    /// <summary>
+    /// Enemy および　Shrineの生成数関連
+    /// </summary>
+    private int totalMapCollectNum;
+    private int enemyNum;
+    
     #endregion
     
     
@@ -57,6 +63,10 @@ public class MapEventManager : MonoBehaviour
     /// <param name="onFinished"></param>
     public void SetEvent(Action onFinished)
     {
+        // 初期化
+        this.totalMapCollectNum = 0;
+        this.enemyNum = 0;
+        
         // ExitDoorを生成
         this.SetExitDoor(() =>
         {
@@ -170,7 +180,7 @@ public class MapEventManager : MonoBehaviour
     }
 
     #endregion
-    
+
     
     
     #region [003. SetEnemy]
@@ -182,11 +192,10 @@ public class MapEventManager : MonoBehaviour
     {
         // Map選定
         var collectedMapList = MapCollector.Instance.collectedMapList;
-        var totalMapCollectNum = MapCollector.Instance.CurrentTotalMapCollectNum;
-        int enemyNum = totalMapCollectNum / 3;
-        Debug.LogFormat($"enemyNum = {enemyNum}", DColor.yellow);
+        this.totalMapCollectNum = MapCollector.Instance.CurrentTotalMapCollectNum;
+        this.enemyNum = totalMapCollectNum / 3;
         
-        for (int num = 0;  num < enemyNum -1; num++)
+        for (int num = 0;  num < enemyNum - 1; num++)
         {
             // Map選定
             var randomNum = UnityEngine.Random.Range(0, collectedMapList.Count);
@@ -228,7 +237,38 @@ public class MapEventManager : MonoBehaviour
     /// <param name="onFinished"></param>
     private void SetShrine(Action onFinished)
     {
+        // Map選定
+        var collectedMapList = MapCollector.Instance.collectedMapList;
+        var shrineNum = this.totalMapCollectNum - this.enemyNum;
         
+        for (int num = 0;  num < shrineNum - 1 ; num++)
+        {
+            // Map選定
+            var randomNum = UnityEngine.Random.Range(0, collectedMapList.Count);
+            // 該当MapのMapInfo
+            var mapInfo = collectedMapList[randomNum].GetComponent<MapInfo>();
+            
+            // PlayerがSpawnしているMapか、既にMapEventが生成されたMapだった場合、やり直し
+            if (mapInfo.IsPlayerAlreadySpawned || mapInfo.IsMapEventSet)
+            {
+                num -= 1;
+                continue;
+            }
+            
+            // PlayerがSpawnされていない、且、MapEventが生成されていない場合
+            if(!mapInfo.IsPlayerAlreadySpawned && !mapInfo.IsMapEventSet)
+            {
+                // DoorKeyを生成
+                var shrineObj = Instantiate(this.shrinePrefab, mapInfo.MapEventRoot);
+                
+                // セット済みトリガー
+                mapInfo.SetMapEventSettingTriggerOn();
+                // MapEventControllerをセット
+                mapInfo.SetMapEventController(shrineObj.GetComponent<MapEventController>());
+                // MapのGameObject名の後ろにEvent名を追加
+                mapInfo.SetEventNameOnMapName("Shrine");
+            }
+        }
 
         onFinished?.Invoke();
     }
