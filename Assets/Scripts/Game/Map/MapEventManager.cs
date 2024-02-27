@@ -5,6 +5,33 @@ using UnityEngine;
 
 public class MapEventManager : MonoBehaviour
 {
+    #region [var]
+
+    [Header(" --- Setting Events")]
+    /// <summary>
+    /// ExitDoor Prefab
+    /// </summary>
+    [SerializeField]
+    private GameObject exitDoorPrefab;
+    /// <summary>
+    /// DoorKey Prefab
+    /// </summary>
+    [SerializeField]
+    private GameObject doorKeyPrefab;
+    /// <summary>
+    /// Enemy Prefab
+    /// </summary>
+    [SerializeField]
+    private GameObject enemyPrefab;
+    /// <summary>
+    /// Shrine Prefab
+    /// </summary>
+    [SerializeField]
+    private GameObject shrinePrefab;
+
+    #endregion
+    
+    
     
     
     #region [func]
