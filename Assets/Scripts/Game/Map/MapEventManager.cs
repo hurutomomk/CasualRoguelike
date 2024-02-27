@@ -134,7 +134,37 @@ public class MapEventManager : MonoBehaviour
     /// <param name="onFinished"></param>
     private void SetDoorKey(Action onFinished)
     {
+        // Map選定
+        var collectedMapList = MapCollector.Instance.collectedMapList;
         
+        for (int num = 0; num < 1; num++)
+        {
+            // Map選定
+            var randomNum = UnityEngine.Random.Range(0, collectedMapList.Count);
+            // 該当MapのMapInfo
+            var mapInfo = collectedMapList[randomNum].GetComponent<MapInfo>();
+            
+            // PlayerがSpawnしているMapか、既にMapEventが生成されたMapだった場合、やり直し
+            if (mapInfo.IsPlayerAlreadySpawned || mapInfo.IsMapEventSet)
+            {
+                num -= 1;
+                continue;
+            }
+            
+            // PlayerがSpawnされていない、且、MapEventが生成されていない場合
+            if(!mapInfo.IsPlayerAlreadySpawned && !mapInfo.IsMapEventSet)
+            {
+                // DoorKeyを生成
+                var doorKeyObj = Instantiate(this.doorKeyPrefab, mapInfo.MapEventRoot);
+                
+                // セット済みトリガー
+                mapInfo.SetMapEventSettingTriggerOn();
+                // MapEventControllerをセット
+                mapInfo.SetMapEventController(doorKeyObj.GetComponent<MapEventController>());
+                // MapのGameObject名の後ろにEvent名を追加
+                mapInfo.SetEventNameOnMapName("DoorKey");
+            }
+        }
 
         onFinished?.Invoke();
     }
