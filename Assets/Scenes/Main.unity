@@ -978,6 +978,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65366038b1006a246a151309a8dfd2e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitDoorPrefab: {fileID: 6561610988919138603, guid: 3fb51086a11f2d644a319bfbc0648580, type: 3}
+  doorKeyPrefab: {fileID: 4277306725325343746, guid: 2d437c0778d75b94a97d7067f6794492, type: 3}
+  enemyPrefab: {fileID: 4277306725325343746, guid: a7ecdbe323cf94d42a3746156c495bc3, type: 3}
+  shrinePrefab: {fileID: 4277306725325343746, guid: 5408c0d9ce4d4b74099cb3d245d46d46, type: 3}
 --- !u!4 &2015362159
 Transform:
   m_ObjectHideFlags: 0

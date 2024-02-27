@@ -98,8 +98,8 @@ public class MapInfo : MonoBehaviour
     /// <summary>
     /// MapEventController
     /// </summary>
-    // private MapEventController mapEventController;
-    // public MapEventController MapEventController { get => this.mapEventController; }
+    private MapEventController mapEventController;
+    public MapEventController MapEventController { get => this.mapEventController; }
     
     [Header(" --- Map Event 発生 関連")]
     /// <summary>
@@ -212,10 +212,10 @@ public class MapInfo : MonoBehaviour
     /// セット済みMapEventのMapEventControllerを保存
     /// </summary>
     /// <param name="targetMapEventController"></param>
-    // public void SetMapEventController(MapEventController targetMapEventController)
-    // {
-    //     this.mapEventController = targetMapEventController;
-    // }
+    public void SetMapEventController(MapEventController targetMapEventController)
+    {
+        this.mapEventController = targetMapEventController;
+    }
 
     /// <summary>
     /// Map名の未松にPlayerSpawnやセットされたEvent名を追加
@@ -251,11 +251,11 @@ public class MapInfo : MonoBehaviour
     /// <summary>
     /// MapEvent終了後、MapEvent画像を終了Stateの画像に変更
     /// </summary>
-    // public void SetMapEventToFinishedState()
-    // {
-    //     if(this.mapEventController != null)
-    //         this.mapEventController.SetSpriteToFinishedSprite();
-    // }
+    public void SetMapEventToFinishedState()
+    {
+        if(this.mapEventController != null)
+            this.mapEventController.SetSpriteToFinishedSprite();
+    }
     
 
     /// <summary>

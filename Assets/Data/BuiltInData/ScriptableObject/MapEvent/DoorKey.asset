@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d954a0841b84654eb84178179a684e9, type: 3}
+  m_Name: DoorKey
+  m_EditorClassIdentifier: 
+  eventID: 1
+  eventSprite_Start: {fileID: 21300000, guid: cbb35c1e53bd2744a82f289d95201e5d, type: 3}
+  eventSprite_Open: {fileID: 21300000, guid: 0b5ef07823c6c924ab3fb6f895f0b951, type: 3}
+  eventSprite_Change: {fileID: 21300000, guid: 0b5ef07823c6c924ab3fb6f895f0b951, type: 3}
+  eventSprite_Finished: {fileID: 21300000, guid: 7fff61eee60c2f141814abbc3b90e610, type: 3}
+  eventName: DoorKey
+  eventDescription: 'Description
+
+    DoorKey '
