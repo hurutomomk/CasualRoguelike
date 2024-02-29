@@ -149,7 +149,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77938766}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
@@ -160,7 +160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40, y: 0}
+  m_AnchoredPosition: {x: 39.999985, y: 0}
   m_SizeDelta: {x: 20, y: 22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &77938768
@@ -206,7 +206,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 77938769}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 359602440}
+        m_TargetAssemblyTypeName: UIButtonController, Assembly-CSharp
+        m_MethodName: OnClickMoveButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: right
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &77938769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,6 +623,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 359602439}
+  - component: {fileID: 359602440}
   m_Layer: 0
   m_Name: ButtonController
   m_TagString: Untagged
@@ -641,6 +654,57 @@ RectTransform:
   m_AnchoredPosition: {x: 45, y: -157}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &359602440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359602438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f25b3138eac4754897c6368892138b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingButton: {fileID: 421575745}
+  movementModeToggleButton: {fileID: 598465767}
+  movementButtonsForPlayer:
+  - {fileID: 2061828444}
+  - {fileID: 733106486}
+  - {fileID: 77938768}
+  - {fileID: 1232412266}
+  - {fileID: 598465767}
+  northButton: {fileID: 2061828444}
+  eastButton: {fileID: 77938768}
+  southButton: {fileID: 1232412266}
+  westButton: {fileID: 733106486}
+  movementButtonsForCamera:
+  - {fileID: 623901315}
+  - {fileID: 1427771300}
+  - {fileID: 1227996279}
+  - {fileID: 956845677}
+  - {fileID: 1386973929}
+  movementButtonObjForPlayer: {fileID: 598465765}
+  movementButtonGroupTransformForPlayer: {fileID: 475306382}
+  movementButtonObjForCamera: {fileID: 598465765}
+  movementButtonGroupTransformForCamera: {fileID: 1483791167}
+  buttonObjsForHUDActivation:
+  - {fileID: 803095423}
+  - {fileID: 1061548962}
+  - {fileID: 634798273}
+  movementModeToggleButtonImage: {fileID: 1386973930}
+  interactButtonImage: {fileID: 0}
+  buttonImagesForDisable:
+  - {fileID: 421575746}
+  - {fileID: 598465768}
+  - {fileID: 2061828445}
+  - {fileID: 733106487}
+  - {fileID: 77938769}
+  - {fileID: 1232412267}
+  - {fileID: 623901316}
+  - {fileID: 1427771301}
+  - {fileID: 1227996280}
+  - {fileID: 956845678}
 --- !u!1 &393967345
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,7 +820,7 @@ GameObject:
   - component: {fileID: 421575746}
   - component: {fileID: 421575745}
   m_Layer: 0
-  m_Name: Button_Down
+  m_Name: Button_Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1430,7 +1494,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 733106487}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 359602440}
+        m_TargetAssemblyTypeName: UIButtonController, Assembly-CSharp
+        m_MethodName: OnClickMoveButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: left
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &733106487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2614,7 +2690,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1232412267}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 359602440}
+        m_TargetAssemblyTypeName: UIButtonController, Assembly-CSharp
+        m_MethodName: OnClickMoveButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: down
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1232412267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4131,7 +4219,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2061828445}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 359602440}
+        m_TargetAssemblyTypeName: UIButtonController, Assembly-CSharp
+        m_MethodName: OnClickMoveButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: up
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2061828445
 MonoBehaviour:
   m_ObjectHideFlags: 0
