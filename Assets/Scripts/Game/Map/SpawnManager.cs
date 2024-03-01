@@ -20,7 +20,11 @@ public class SpawnManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     private GameObject playerPrefab;
-    
+    /// <summary>
+    /// 各種UIController
+    /// </summary>
+    [SerializeField]
+    private UIButtonController uIButtonController;
     #endregion
     
     #endregion
@@ -58,7 +62,12 @@ public class SpawnManager : MonoBehaviour
         {
             // Playerを生成
             var playerObj = Instantiate(this.playerPrefab, this.playerRootTransform);
-
+            //  PlayerScriptControllerを参照
+            var playerScript = playerObj.GetComponent<PlayerMovementController>();
+            // Playerの各種基礎データをセット
+            playerScript.SetPlayerMovementData(mapInfo.transform.position);
+            this.uIButtonController.SetUIButton(playerScript);
+            
             // Playerの座標を記録
             playerObj.transform.position = mapInfo.transform.position;
             

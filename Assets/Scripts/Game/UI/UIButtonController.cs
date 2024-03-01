@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,11 @@ public class UIButtonController : MonoBehaviour
 
     #region [01. 参照]
     [Header(" --- Reference")]
-    
+    /// <summary>
+    /// PlayerMovementController
+    /// </summary>
+    [SerializeField]
+    private PlayerMovementController playerMovementController;
     #endregion
 
     #region [02. ボタン]
@@ -103,6 +108,8 @@ public class UIButtonController : MonoBehaviour
     /// </summary>
     [SerializeField]
     private Image[] buttonImagesForDisable;
+    [SerializeField]
+    private Image[] buttonImagesForDisableExceptMovementButton;
     #endregion
 
     #region [04. トリガー]
@@ -134,21 +141,116 @@ public class UIButtonController : MonoBehaviour
     #region [func]
     
     #region [01. コンストラクタ]
-    
-    
-
-    
+    /// <summary>
+    /// コンストラクタ
+    /// </summary>
+    public void SetUIButton(PlayerMovementController playerMovementControllerScript)
+    {
+        // スクリプトセット
+        this.playerMovementController = playerMovementControllerScript;
+        
+        // 各種ボタンの初期化
+        this.SetMovementButtonState(this.isButtonForCameraMovement);
+    }
     #endregion
 
     #region [02.]
     
     /// <summary>
-    /// 移動ボタン押下時の処理
+    /// 移動ボタンの表示切り替え
+    /// </summary>
+    /// <param name="state"></param>
+    public void SetMovementButtonState(bool state)
+    {
+        // カメラ移動ボタンの表示ステート変更
+        this.movementButtonObjForCamera.SetActive(state);
+        // 移動可能方向のみボタン選択可に変更
+        this.EnableButtonTouchExceptMovementButton();
+        
+        // プレイヤー移動ボタンの表示ステート変更
+        this.movementButtonObjForPlayer.SetActive(!state);
+        this.movementButtonGroupTransformForPlayer.SetActive(!state);
+        this.movementButtonGroupTransformForCamera.SetActive(state);
+        
+        // カメラ座標のリセット
+        this.playerMovementController.ResetCameraPosition();
+    }
+    
+    /// <summary>
+    /// 移動ボタンの表示切り替えボタン押下時の処理
+    /// </summary>
+    public void OnClickChangeMovementButtonStateButton()
+    {
+        if (this.isButtonForCameraMovement)
+        {
+            // カメラオプション変更
+            this.playerMovementController.SetCameraOptionOnPlayerMovementMode();
+            
+            // トリガーをセット
+            this.isButtonForCameraMovement = false;
+            
+            // ボタンImageの表示切り替え
+            // TODO :: アルファ時にSprite切り替えに変更
+            this.movementModeToggleButtonImage.color = Color.white;
+        }
+        else
+        {
+            // カメラオプション変更
+            this.playerMovementController.SetCameraOptionOnCameraMovementMode();
+            
+            // トリガーをセット
+            this.isButtonForCameraMovement = true;
+            
+            // ボタンImageの表示切り替え
+            // TODO :: アルファ時にSprite切り替えに変更
+            this.movementModeToggleButtonImage.color = Color.green;
+        }
+        
+        // 移動ボタンの表示切り替え
+        this.SetMovementButtonState(this.isButtonForCameraMovement);
+    }
+    
+    /// <summary>
+    /// カメラ移動ボタン押下時の処理を中継
     /// </summary>
     /// <param name="directionStr"></param>
-    public void OnClickMoveButton(string directionStr)
+    public void OnClickCameraMovementButton(string directionStr)
     {
+        // ボタン押下を一時的に無効化
+        this.SetMovementButtonEnableState(this.playerMovementController.CameraMoveSpeed);
+        // 実際の処理
+        this.playerMovementController.OnClickCameraMovementButton(directionStr);
+    }
+    
+    /// <summary>
+    /// 移動ボタンのコンポネントEnableステート切り替え
+    /// </summary>
+    /// <param name="delay"></param>
+    private void SetMovementButtonEnableState(float delay)
+    {
+        // 各種ボタンコンポネントをDisable
+        // TODO :: ボタンImageの表示切り替え処理を追加
+        this.settingButton.enabled = false;
+        this.movementModeToggleButton.enabled = false;
+        foreach (var button in this.movementButtonsForPlayer)　button.enabled = false;
+        foreach (var button in this.movementButtonsForCamera)　button.enabled = false;
         
+        // ボタンイメージ変更
+        this.SetButtonImageForDisable();
+
+        // 遅延処理
+        DOVirtual.DelayedCall(delay, () =>
+        {
+            // 各種ボタンコンポネントをEnable
+            // TODO :: ボタンImageの表示切り替え処理を追加
+            this.settingButton.enabled = true;
+            this.movementModeToggleButton.enabled = true;
+            foreach (var button in this.movementButtonsForPlayer)　button.enabled = true;
+            foreach (var button in this.movementButtonsForCamera)　button.enabled = true;
+            
+            // ボタンイメージ変更
+            this.SetButtonImageForEnable();
+        });
     }
     
     /// <summary>
@@ -179,6 +281,26 @@ public class UIButtonController : MonoBehaviour
         
         // ボタンイメージ変更
         this.SetButtonImageForEnable();
+        // 移動可能方向のみボタン選択可に変更
+        this.EnableButtonTouchExceptMovementButton();
+    }
+    
+    /// <summary>
+    /// EnableButtonTouch
+    /// </summary>
+    public void EnableButtonTouchExceptMovementButton()
+    {
+        // 各種ボタンコンポネントをEnable
+        this.settingButton.enabled = true;
+        this.movementModeToggleButton.enabled = true;
+        foreach (var button in this.movementButtonsForCamera)　button.enabled = true;
+        
+        // ボタンイメージ変更
+        foreach (var image in this.buttonImagesForDisableExceptMovementButton)
+            image.GetComponent<UIButtonImageStateController>().SetEnabledSprite();
+        
+        // 到着したMapのMapInfoの読み込み
+        PlayerMovementManager.Instance.GetMapInfo();
     }
     
     /// <summary>
@@ -186,7 +308,8 @@ public class UIButtonController : MonoBehaviour
     /// </summary>
     private void SetButtonImageForDisable()
     {
-        
+        foreach (var image in this.buttonImagesForDisable)
+            image.GetComponent<UIButtonImageStateController>().SetDisabledSprite();
     }
     
     /// <summary>
@@ -194,7 +317,8 @@ public class UIButtonController : MonoBehaviour
     /// </summary>
     private void SetButtonImageForEnable()
     {
-        
+        foreach (var image in this.buttonImagesForDisable)
+            image.GetComponent<UIButtonImageStateController>().SetEnabledSprite();
     }
     
     /// <summary>
@@ -203,7 +327,10 @@ public class UIButtonController : MonoBehaviour
     public void SetEachMovementButtonEnableState(Button button, bool state)
     {
         button.enabled = state;
-        
+        if (state)
+            button.GetComponent<UIButtonImageStateController>().SetEnabledSprite();
+        else
+            button.GetComponent<UIButtonImageStateController>().SetDisabledSprite();
     }
     
     #endregion
