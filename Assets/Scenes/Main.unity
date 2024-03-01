@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 77938770}
   - component: {fileID: 77938769}
   - component: {fileID: 77938768}
+  - component: {fileID: 77938771}
   m_Layer: 0
   m_Name: Button_Right
   m_TagString: Untagged
@@ -149,7 +150,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77938766}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
@@ -160,7 +161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40, y: 0}
+  m_AnchoredPosition: {x: 39.999985, y: 0}
   m_SizeDelta: {x: 20, y: 22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &77938768
@@ -206,7 +207,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 77938769}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1594321671}
+        m_TargetAssemblyTypeName: PlayerMovementManager, Assembly-CSharp
+        m_MethodName: OnClickMoveButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: right
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &77938769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +258,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77938766}
   m_CullTransparentMesh: 1
+--- !u!114 &77938771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77938766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce4fff37045f2044ae05dfc2a1e46ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabledSprite: {fileID: 21300000, guid: 32d3dd85b5b31fe4d86837e9e76aae32, type: 3}
+  disabledSprite: {fileID: 21300000, guid: 6d7229b270ff02f48b4fcfd389e2e002, type: 3}
 --- !u!1 &105455340
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &105455341
 RectTransform:
   m_ObjectHideFlags: 0
@@ -444,7 +471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &342718851
 RectTransform:
   m_ObjectHideFlags: 0
@@ -611,6 +638,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 359602439}
+  - component: {fileID: 359602440}
   m_Layer: 0
   m_Name: ButtonController
   m_TagString: Untagged
@@ -641,6 +669,64 @@ RectTransform:
   m_AnchoredPosition: {x: 45, y: -157}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &359602440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359602438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f25b3138eac4754897c6368892138b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovementController: {fileID: 0}
+  settingButton: {fileID: 421575745}
+  movementModeToggleButton: {fileID: 598465767}
+  movementButtonsForPlayer:
+  - {fileID: 2061828444}
+  - {fileID: 733106486}
+  - {fileID: 77938768}
+  - {fileID: 1232412266}
+  - {fileID: 598465767}
+  northButton: {fileID: 2061828444}
+  eastButton: {fileID: 77938768}
+  southButton: {fileID: 1232412266}
+  westButton: {fileID: 733106486}
+  movementButtonsForCamera:
+  - {fileID: 623901315}
+  - {fileID: 1427771300}
+  - {fileID: 1227996279}
+  - {fileID: 956845677}
+  - {fileID: 1386973929}
+  movementButtonObjForPlayer: {fileID: 598465765}
+  movementButtonGroupTransformForPlayer: {fileID: 475306382}
+  movementButtonObjForCamera: {fileID: 598465765}
+  movementButtonGroupTransformForCamera: {fileID: 1483791167}
+  buttonObjsForHUDActivation:
+  - {fileID: 803095423}
+  - {fileID: 1061548962}
+  - {fileID: 634798273}
+  movementModeToggleButtonImage: {fileID: 1386973930}
+  buttonImagesForDisable:
+  - {fileID: 421575746}
+  - {fileID: 598465768}
+  - {fileID: 2061828445}
+  - {fileID: 733106487}
+  - {fileID: 77938769}
+  - {fileID: 1232412267}
+  - {fileID: 623901316}
+  - {fileID: 1427771301}
+  - {fileID: 1227996280}
+  - {fileID: 956845678}
+  buttonImagesForDisableExceptMovementButton:
+  - {fileID: 421575746}
+  - {fileID: 598465768}
+  - {fileID: 2061828445}
+  - {fileID: 733106487}
+  - {fileID: 77938769}
+  - {fileID: 1232412267}
 --- !u!1 &393967345
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,7 +825,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 100
   m_TargetDisplay: 0
@@ -755,8 +841,9 @@ GameObject:
   - component: {fileID: 421575747}
   - component: {fileID: 421575746}
   - component: {fileID: 421575745}
+  - component: {fileID: 421575748}
   m_Layer: 0
-  m_Name: Button_Down
+  m_Name: Button_Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -865,6 +952,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 421575743}
   m_CullTransparentMesh: 1
+--- !u!114 &421575748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421575743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce4fff37045f2044ae05dfc2a1e46ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabledSprite: {fileID: 21300000, guid: 2a6c78a4678f7554bb94d139e5c06b6e, type: 3}
+  disabledSprite: {fileID: 21300000, guid: b3d6391a341a4d6448d8cda8939e6ded, type: 3}
 --- !u!1 &475306382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,6 +1178,7 @@ GameObject:
   - component: {fileID: 598465769}
   - component: {fileID: 598465768}
   - component: {fileID: 598465767}
+  - component: {fileID: 598465770}
   m_Layer: 0
   m_Name: Button_ModeToCamera
   m_TagString: Untagged
@@ -1187,6 +1289,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 598465765}
   m_CullTransparentMesh: 1
+--- !u!114 &598465770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598465765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce4fff37045f2044ae05dfc2a1e46ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabledSprite: {fileID: 21300000, guid: 08b38684777d23c418b1c258afb98694, type: 3}
+  disabledSprite: {fileID: 21300000, guid: c48476430ce598d4caf3104d15fc425d, type: 3}
 --- !u!1 &623901313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,6 +1315,7 @@ GameObject:
   - component: {fileID: 623901317}
   - component: {fileID: 623901316}
   - component: {fileID: 623901315}
+  - component: {fileID: 623901318}
   m_Layer: 0
   m_Name: Button_Up
   m_TagString: Untagged
@@ -1309,6 +1426,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623901313}
   m_CullTransparentMesh: 1
+--- !u!114 &623901318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623901313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce4fff37045f2044ae05dfc2a1e46ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabledSprite: {fileID: 21300000, guid: 98257394a2649f04d977e37d1af128d7, type: 3}
+  disabledSprite: {fileID: 21300000, guid: e53ce6bfbb6159344899beb889c27894, type: 3}
 --- !u!1 &634798273
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,6 +1490,7 @@ GameObject:
   - component: {fileID: 733106488}
   - component: {fileID: 733106487}
   - component: {fileID: 733106486}
+  - component: {fileID: 733106489}
   m_Layer: 0
   m_Name: Button_Left
   m_TagString: Untagged
@@ -1430,7 +1562,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 733106487}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1594321671}
+        m_TargetAssemblyTypeName: PlayerMovementManager, Assembly-CSharp
+        m_MethodName: OnClickMoveButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: left
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &733106487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1469,6 +1613,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733106484}
   m_CullTransparentMesh: 1
+--- !u!114 &733106489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733106484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce4fff37045f2044ae05dfc2a1e46ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabledSprite: {fileID: 21300000, guid: 812c7f5dd7d905c45a2a451bdc22f00e, type: 3}
+  disabledSprite: {fileID: 21300000, guid: a01eeb44e3666f24981af9e9c8abce17, type: 3}
 --- !u!1 &781874956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2043,6 +2201,7 @@ GameObject:
   - component: {fileID: 956845679}
   - component: {fileID: 956845678}
   - component: {fileID: 956845677}
+  - component: {fileID: 956845680}
   m_Layer: 0
   m_Name: Button_Down
   m_TagString: Untagged
@@ -2153,6 +2312,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956845675}
   m_CullTransparentMesh: 1
+--- !u!114 &956845680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956845675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce4fff37045f2044ae05dfc2a1e46ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabledSprite: {fileID: 21300000, guid: 1e45200dc55a04140bcfdd270aadcbbf, type: 3}
+  disabledSprite: {fileID: 21300000, guid: 251fdcc50df618c44970607a5eb065b3, type: 3}
 --- !u!1 &973208737
 GameObject:
   m_ObjectHideFlags: 0
@@ -2184,6 +2357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRootTransform: {fileID: 802944155}
   playerPrefab: {fileID: 7608041201291322432, guid: 87bf70d0608fc1f4f812784dc1d399ea, type: 3}
+  uIButtonController: {fileID: 359602440}
 --- !u!4 &973208739
 Transform:
   m_ObjectHideFlags: 0
@@ -2254,7 +2428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1064722033
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2297,14 +2471,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
-  m_sharedMaterial: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4281479730
   m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -2317,7 +2491,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -2348,7 +2522,7 @@ MonoBehaviour:
   checkPaddingRequired: 0
   m_isRichText: 1
   m_parseCtrlCharacters: 1
-  m_isOrthographic: 0
+  m_isOrthographic: 1
   m_isCullingEnabled: 0
   m_horizontalMapping: 0
   m_verticalMapping: 0
@@ -2421,6 +2595,7 @@ GameObject:
   - component: {fileID: 1227996281}
   - component: {fileID: 1227996280}
   - component: {fileID: 1227996279}
+  - component: {fileID: 1227996282}
   m_Layer: 0
   m_Name: Button_Right
   m_TagString: Untagged
@@ -2531,6 +2706,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227996277}
   m_CullTransparentMesh: 1
+--- !u!114 &1227996282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227996277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce4fff37045f2044ae05dfc2a1e46ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabledSprite: {fileID: 21300000, guid: 32d3dd85b5b31fe4d86837e9e76aae32, type: 3}
+  disabledSprite: {fileID: 21300000, guid: 6d7229b270ff02f48b4fcfd389e2e002, type: 3}
 --- !u!1 &1232412264
 GameObject:
   m_ObjectHideFlags: 0
@@ -2543,6 +2732,7 @@ GameObject:
   - component: {fileID: 1232412268}
   - component: {fileID: 1232412267}
   - component: {fileID: 1232412266}
+  - component: {fileID: 1232412269}
   m_Layer: 0
   m_Name: Button_Down
   m_TagString: Untagged
@@ -2614,7 +2804,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1232412267}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1594321671}
+        m_TargetAssemblyTypeName: PlayerMovementManager, Assembly-CSharp
+        m_MethodName: OnClickMoveButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: down
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1232412267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2653,6 +2855,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232412264}
   m_CullTransparentMesh: 1
+--- !u!114 &1232412269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232412264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce4fff37045f2044ae05dfc2a1e46ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabledSprite: {fileID: 21300000, guid: 1e45200dc55a04140bcfdd270aadcbbf, type: 3}
+  disabledSprite: {fileID: 21300000, guid: 251fdcc50df618c44970607a5eb065b3, type: 3}
 --- !u!1 &1247117384
 GameObject:
   m_ObjectHideFlags: 0
@@ -2670,7 +2886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1247117385
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2927,7 +3143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1416404138
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3057,6 +3273,7 @@ GameObject:
   - component: {fileID: 1427771302}
   - component: {fileID: 1427771301}
   - component: {fileID: 1427771300}
+  - component: {fileID: 1427771303}
   m_Layer: 0
   m_Name: Button_Left
   m_TagString: Untagged
@@ -3167,6 +3384,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427771298}
   m_CullTransparentMesh: 1
+--- !u!114 &1427771303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427771298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce4fff37045f2044ae05dfc2a1e46ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabledSprite: {fileID: 21300000, guid: 812c7f5dd7d905c45a2a451bdc22f00e, type: 3}
+  disabledSprite: {fileID: 21300000, guid: a01eeb44e3666f24981af9e9c8abce17, type: 3}
 --- !u!1 &1483791167
 GameObject:
   m_ObjectHideFlags: 0
@@ -3207,6 +3438,55 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1594321670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1594321672}
+  - component: {fileID: 1594321671}
+  m_Layer: 0
+  m_Name: PlayerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1594321671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594321670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7f4f59ee1c32904290ab2da8b7902a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uIbuttonController: {fileID: 359602440}
+  canMoveToNorth: 0
+  canMoveToEast: 0
+  canMoveToSouth: 0
+  canMoveToWest: 0
+--- !u!4 &1594321672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594321670}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -186.6251, y: 1812.0505, z: -33.76773}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1631137991
 GameObject:
   m_ObjectHideFlags: 0
@@ -3535,7 +3815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1707155005
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3578,14 +3858,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
-  m_sharedMaterial: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4281479730
   m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -3598,7 +3878,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -3629,7 +3909,7 @@ MonoBehaviour:
   checkPaddingRequired: 0
   m_isRichText: 1
   m_parseCtrlCharacters: 1
-  m_isOrthographic: 0
+  m_isOrthographic: 1
   m_isCullingEnabled: 0
   m_horizontalMapping: 0
   m_verticalMapping: 0
@@ -4060,6 +4340,7 @@ GameObject:
   - component: {fileID: 2061828446}
   - component: {fileID: 2061828445}
   - component: {fileID: 2061828444}
+  - component: {fileID: 2061828447}
   m_Layer: 0
   m_Name: Button_Up
   m_TagString: Untagged
@@ -4131,7 +4412,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2061828445}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1594321671}
+        m_TargetAssemblyTypeName: PlayerMovementManager, Assembly-CSharp
+        m_MethodName: OnClickMoveButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: up
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2061828445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4170,3 +4463,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061828442}
   m_CullTransparentMesh: 1
+--- !u!114 &2061828447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061828442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce4fff37045f2044ae05dfc2a1e46ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabledSprite: {fileID: 21300000, guid: 98257394a2649f04d977e37d1af128d7, type: 3}
+  disabledSprite: {fileID: 21300000, guid: e53ce6bfbb6159344899beb889c27894, type: 3}
