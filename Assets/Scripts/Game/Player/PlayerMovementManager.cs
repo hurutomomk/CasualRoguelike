@@ -216,6 +216,8 @@ public class PlayerMovementManager : MonoBehaviour
         // Event発生ありの場合、EventDialogを表示
         if (this.mapInfo != null && this.mapInfo.IsMapEventFinished == false)
         {
+            Debug.LogFormat("Event Checking", DColor.cyan);
+            
             // 消化したMapEventをFinishedStateに変更
             this.mapInfo.SetMapEventToFinishedState();
         }
@@ -242,6 +244,12 @@ public class PlayerMovementManager : MonoBehaviour
         {
             StopCoroutine(this.coroutine);
             this.coroutine = null;
+            
+            DOVirtual.DelayedCall(.2f, () =>
+            {
+                // ボタンタッチ有効
+                this.uIbuttonController.EnableButtonTouchExceptMovementButton();
+            });
         });
     }
     #endregion

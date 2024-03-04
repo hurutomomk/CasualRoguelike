@@ -63,13 +63,14 @@ public class SpawnManager : MonoBehaviour
             // Playerを生成
             var playerObj = Instantiate(this.playerPrefab, this.playerRootTransform);
             //  PlayerScriptControllerを参照
-            var playerScript = playerObj.GetComponent<PlayerMovementController>();
+            //var playerScript = playerObj.GetComponent<PlayerMovementController>();
+            var playerScript = playerObj.transform.GetComponentInChildren<PlayerMovementController>();
             // Playerの各種基礎データをセット
             playerScript.SetPlayerMovementData(mapInfo.transform.position);
             this.uIButtonController.SetUIButton(playerScript);
             
             // Playerの座標を記録
-            playerObj.transform.position = mapInfo.transform.position;
+            //playerScript.transform.position = mapInfo.transform.position;
             
             // 生成済みトリガー
             mapInfo.SetPlayerSpawnTriggerOn();
