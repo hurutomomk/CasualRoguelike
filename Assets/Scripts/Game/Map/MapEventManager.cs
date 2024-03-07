@@ -7,6 +7,18 @@ public class MapEventManager : MonoBehaviour
 {
     #region [var]
 
+    [Header(" --- Reference")]
+    /// <summary>
+    /// UIDialogController
+    /// </summary>
+    [SerializeField]
+    private UIDialogController uiDialogController;
+    /// <summary>
+    /// PlayerStatusManager
+    /// </summary>
+    [SerializeField]
+    private PlayerStatusManager playerStatusManager;
+    
     [Header(" --- Setting Events")]
     /// <summary>
     /// ExitDoor Prefab
@@ -33,6 +45,11 @@ public class MapEventManager : MonoBehaviour
     /// ExitDoorOpen関連
     /// </summary>
     private MapEventController exitDoorMapEventController;
+    private bool isExitDoorLogShown = false;
+    public bool IsExitDoorLogShown { get => this.isExitDoorLogShown; }
+    
+    private bool isExitDoorOpened= false;
+    public bool IsExitDoorOpened { get => this.isExitDoorOpened; }
     
     /// <summary>
     /// Enemy および　Shrineの生成数関連
@@ -86,7 +103,7 @@ public class MapEventManager : MonoBehaviour
         });
     }
 
-
+    #endregion
 
     #region [001. SetExitDoor]
     /// <summary>
@@ -274,6 +291,61 @@ public class MapEventManager : MonoBehaviour
     }
     #endregion
 
+    #region [03. Event Execution]
+    /// <summary>
+    /// MapEvent実行
+    /// </summary>
+    /// <param name="targetMapEvent"></param>
+    /// <param name="targetMapEventController"></param>
+    public void DoWhatMapEventDoes(MapEvent targetMapEvent, MapEventController targetMapEventController)
+    {
+        Debug.LogFormat($"this MapEvent is ::: {targetMapEvent.eventName} :::", DColor.cyan);
+        
+        switch (targetMapEvent.eventID)
+        {
+            case 0:
+                
+                break;
+            case 1:
+                // Open ExitDoor 
+                this.SetExitDoorToOpenState();
+                // DoorKey Count +1 
+                this.playerStatusManager.IncreaseDoorKeyCount();
+                break;
+            case 2:
+                break;
+        }
+    }
+    
+    /// <summary>
+    /// ExitDoorを開いた状態に変更
+    /// </summary>
+    private void SetExitDoorToOpenState()
+    {
+        this.SetExitDoorLogBoolState(true);
+        this.SetExitDoorBoolState(true);
+        this.exitDoorMapEventController.SetExitDoorSpriteToFinishedSprite();
+        
+        // TODO:: ExitDoorのEvent実行を有効化し、該当マップ到着時StageClear処理を開始
+    }
+
+    /// <summary>
+    /// ExitDoorLogが開いたか否かのトリガー
+    /// </summary>
+    /// <param name="state"></param>
+    public void SetExitDoorLogBoolState(bool state)
+    {
+        this.isExitDoorLogShown = state;
+    }
+
+    /// <summary>
+    /// ExitDoorが開いたか否かのトリガー
+    /// </summary>
+    /// <param name="state"></param>
+    public void SetExitDoorBoolState(bool state)
+    {
+        this.isExitDoorOpened = state;
+    }
     #endregion
     
     #endregion
