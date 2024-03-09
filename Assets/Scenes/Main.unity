@@ -682,6 +682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovementController: {fileID: 0}
+  uIDialogController: {fileID: 7443867217616967207}
   settingButton: {fileID: 421575745}
   movementModeToggleButton: {fileID: 598465767}
   movementButtonsForPlayer:
@@ -3579,6 +3580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uIbuttonController: {fileID: 359602440}
+  uIDialogController: {fileID: 7443867217616967207}
   canMoveToNorth: 0
   canMoveToEast: 0
   canMoveToSouth: 0
@@ -4355,7 +4357,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 99
   m_TargetDisplay: 0
 --- !u!1 &2006054375
 GameObject:
@@ -7124,7 +7126,6 @@ GameObject:
   - component: {fileID: 2980731679992817078}
   - component: {fileID: 2980731679992817077}
   - component: {fileID: 2980731679992817076}
-  - component: {fileID: 2980731679992817067}
   m_Layer: 21
   m_Name: InfoButton
   m_TagString: Untagged
@@ -7153,18 +7154,6 @@ RectTransform:
   m_AnchoredPosition: {x: 35.768017, y: -140.63242}
   m_SizeDelta: {x: 32, y: 6}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2980731679992817067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2980731679992817065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a47ed7e36e9a69844912c80e91cdc228, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2980731679992817076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7195,7 +7184,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: cf728ee817fe41f42beca8ac7a2823e1, type: 3}
+    m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -10234,7 +10223,7 @@ MonoBehaviour:
   mapEventManager: {fileID: 2015362158}
   playerStatusManager: {fileID: 1594321673}
   curtain: {fileID: 7443867218301812097}
-  dialog_Item: {fileID: 0}
+  dialog_Shrine: {fileID: 7443867218029444395}
   dialog_StatusInfo: {fileID: 7443867218801144731}
   dialog_Battle: {fileID: 7443867217799752300}
   dialog_Event: {fileID: 7443867218958796087}
@@ -10629,7 +10618,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 359602440}
         m_TargetAssemblyTypeName: UIButtonController, Assembly-CSharp
         m_MethodName: OnClickEventDialogCloseButton
         m_Mode: 2
@@ -11418,18 +11407,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: 0, y: 0, z: 0, w: 0}
   m_Softness: {x: 0, y: 0}
---- !u!114 &7443867217789154296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7443867217789154299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99e81f18d258362458b8032c7d6e9e8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &7443867217789154297
 Animator:
   serializedVersion: 5
@@ -11440,7 +11417,7 @@ Animator:
   m_GameObject: {fileID: 7443867217789154299}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1579a1ac4fce4b146bf1580515936119, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
@@ -11482,7 +11459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7443867217789154298}
   - component: {fileID: 7443867217789154297}
-  - component: {fileID: 7443867217789154296}
+  - component: {fileID: 7443867217789154300}
   m_Layer: 20
   m_Name: MapEvent
   m_TagString: Untagged
@@ -11490,6 +11467,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7443867217789154300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7443867217789154299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b7794f6aee00544880681e9723df003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7443867217799752299
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12223,7 +12212,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2da55e3a8c7d3ae47a371ae14eb440ec, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20576,18 +20565,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110479992922302294}
   m_CullTransparentMesh: 1
---- !u!114 &7510894070767321540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7510894070767321542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99e81f18d258362458b8032c7d6e9e8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &7510894070767321541
 Animator:
   serializedVersion: 5
@@ -20619,7 +20596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6274678504707258868}
   - component: {fileID: 7510894070767321541}
-  - component: {fileID: 7510894070767321540}
+  - component: {fileID: 7510894070767321543}
   m_Layer: 15
   m_Name: Battle_Player
   m_TagString: Untagged
@@ -20627,6 +20604,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7510894070767321543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7510894070767321542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b7794f6aee00544880681e9723df003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7684558066769023557
 RectTransform:
   m_ObjectHideFlags: 0

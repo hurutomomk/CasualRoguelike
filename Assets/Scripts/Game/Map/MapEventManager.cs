@@ -310,9 +310,11 @@ public class MapEventManager : MonoBehaviour
                 // Open ExitDoor 
                 this.SetExitDoorToOpenState();
                 // DoorKey Count +1 
-                this.playerStatusManager.IncreaseDoorKeyCount();
+                //this.playerStatusManager.IncreaseDoorKeyCount();
                 break;
             case 2:
+                break;
+            case 3:
                 break;
         }
     }

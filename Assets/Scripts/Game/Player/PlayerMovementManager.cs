@@ -21,6 +21,11 @@ public class PlayerMovementManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     private UIButtonController uIbuttonController;
+    /// <summary>
+    /// UIDialogController
+    /// </summary>
+    [SerializeField]
+    private UIDialogController uIDialogController;
     
     #endregion
     
@@ -218,8 +223,20 @@ public class PlayerMovementManager : MonoBehaviour
         {
             Debug.LogFormat("Event Checking", DColor.cyan);
             
-            // 消化したMapEventをFinishedStateに変更
-            this.mapInfo.SetMapEventToFinishedState();
+            if (!isEventDialogOpened)
+            {
+                // MapEventDialogを表示（初回のみ）
+                this.uIDialogController.ShowEventDialog(
+                    this.uIDialogController.Dialog_Event.transform
+                    , this.mapInfo
+                    , () =>
+                    {
+                        // 消化したMapEventをFinishedStateに変更
+                        this.mapInfo.SetMapEventToFinishedState();
+                    });
+                    
+                isEventDialogOpened = true;
+            }
         }
 
         // Event発生なしの場合、即Loopを終了
