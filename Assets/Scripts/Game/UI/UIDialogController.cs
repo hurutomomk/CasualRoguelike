@@ -44,8 +44,8 @@ public class UIDialogController : MonoBehaviour
     /// ItemDialogのGameObject
     /// </summary>
     [SerializeField]
-    private GameObject dialog_Item;
-    public GameObject Dialog_Item { get => this.dialog_Item; }
+    private GameObject dialog_Shrine;
+    public GameObject Dialog_Item { get => this.dialog_Shrine; }
     /// <summary>
     /// StatusInfoDialogのGameObject
     /// </summary>
@@ -279,7 +279,7 @@ public class UIDialogController : MonoBehaviour
     private void Awake()
     {
         // Log表示を初期化
-        this.dialog_Item.transform.localScale = this.closeScale;
+        this.dialog_Shrine.transform.localScale = this.closeScale;
         this.dialog_StatusInfo.transform.localScale = this.closeScale;
         this.dialog_Event.transform.localScale = this.closeScale;
         this.dialog_Battle.transform.localScale = this.closeScale;
@@ -675,8 +675,48 @@ public class UIDialogController : MonoBehaviour
             {
                 DOVirtual.DelayedCall(0.4f, () =>
                 {
-                    // 該当MapEventがLootBoxだった場合
-                    if (targetMapEvent.eventID == 2)
+                    // 該当MapEventがDoorKeyだった場合
+                    if (targetMapEvent.eventID == 1)
+                    {
+                        // 移動アニメーション
+                        this.mapEventAnimator.transform.DOLocalMove(new Vector3(0f, 45f, 0f), 0.5f)
+                            .SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(true)
+                            .OnComplete(() =>
+                            {
+                                // Log表示アニメーション
+                                this.mapEventLogObj.GetComponent<RectTransform>().DOSizeDelta(new Vector2(180f, 100f), 0.5f)
+                                    .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(true)
+                                    .OnComplete(() =>
+                                    {
+                                        // ボタン表示
+                                        this.closeButton_EventDialog.SetActive(true);
+                                        // MapEvent実行
+                                        this.mapEventManager.DoWhatMapEventDoes(targetMapEvent, targetMapEventController);
+                                    });
+                            });;
+                    }
+                    // 該当MapEventがEnemyだった場合
+                    else if (targetMapEvent.eventID == 2)
+                    {
+                        // 移動アニメーション
+                        this.mapEventAnimator.transform.DOLocalMove(new Vector3(0f, 45f, 0f), 0.5f)
+                            .SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(true)
+                            .OnComplete(() =>
+                            {
+                                // Log表示アニメーション
+                                this.mapEventLogObj.GetComponent<RectTransform>().DOSizeDelta(new Vector2(180f, 100f), 0.5f)
+                                    .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(true)
+                                    .OnComplete(() =>
+                                    {
+                                        // ボタン表示
+                                        this.closeButton_EventDialog.SetActive(true);
+                                        // MapEvent実行
+                                        this.mapEventManager.DoWhatMapEventDoes(targetMapEvent, targetMapEventController);
+                                    });
+                            });;
+                    }
+                    // 該当MapEventがShrineだった場合
+                    else if (targetMapEvent.eventID == 3)
                     {
                         // 「LootBox」の開示アニメーションを再生
                         this.mapEventAnimator.SetTrigger("Open");
@@ -717,26 +757,6 @@ public class UIDialogController : MonoBehaviour
                                     });
                             });
                         });
-                    }
-                    // 該当MapEventがExitDoor、LootBox以外だった場合
-                    else
-                    {
-                        // 移動アニメーション
-                        this.mapEventAnimator.transform.DOLocalMove(new Vector3(0f, 45f, 0f), 0.5f)
-                            .SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(true)
-                            .OnComplete(() =>
-                            {
-                                // Log表示アニメーション
-                                this.mapEventLogObj.GetComponent<RectTransform>().DOSizeDelta(new Vector2(180f, 100f), 0.5f)
-                                    .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(true)
-                                    .OnComplete(() =>
-                                    {
-                                        // ボタン表示
-                                        this.closeButton_EventDialog.SetActive(true);
-                                        // MapEvent実行
-                                        this.mapEventManager.DoWhatMapEventDoes(targetMapEvent, targetMapEventController);
-                                    });
-                            });;
                     }
                 });
             });
