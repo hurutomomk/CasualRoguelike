@@ -682,6 +682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovementController: {fileID: 0}
+  uIDialogController: {fileID: 7443867217616967207}
   settingButton: {fileID: 421575745}
   movementModeToggleButton: {fileID: 598465767}
   movementButtonsForPlayer:
@@ -10617,9 +10618,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7443867217616967206}
+      - m_Target: {fileID: 359602440}
         m_TargetAssemblyTypeName: UIButtonController, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: OnClickEventDialogCloseButton
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 7443867218958796086}

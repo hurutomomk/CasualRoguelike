@@ -16,6 +16,11 @@ public class UIButtonController : MonoBehaviour
     /// </summary>
     [SerializeField]
     private PlayerMovementController playerMovementController;
+    /// <summary>
+    /// UIDialogController
+    /// </summary>
+    [SerializeField]
+    private UIDialogController uIDialogController;
     #endregion
 
     #region [02. ボタン]
@@ -177,52 +182,6 @@ public class UIButtonController : MonoBehaviour
     }
     
     /// <summary>
-    /// 移動ボタンの表示切り替えボタン押下時の処理
-    /// </summary>
-    public void OnClickChangeMovementButtonStateButton()
-    {
-        if (this.isButtonForCameraMovement)
-        {
-            // カメラオプション変更
-            this.playerMovementController.SetCameraOptionOnPlayerMovementMode();
-            
-            // トリガーをセット
-            this.isButtonForCameraMovement = false;
-            
-            // ボタンImageの表示切り替え
-            // TODO :: アルファ時にSprite切り替えに変更
-            this.movementModeToggleButtonImage.color = Color.white;
-        }
-        else
-        {
-            // カメラオプション変更
-            this.playerMovementController.SetCameraOptionOnCameraMovementMode();
-            
-            // トリガーをセット
-            this.isButtonForCameraMovement = true;
-            
-            // ボタンImageの表示切り替え
-            // TODO :: アルファ時にSprite切り替えに変更
-            this.movementModeToggleButtonImage.color = Color.green;
-        }
-        
-        // 移動ボタンの表示切り替え
-        this.SetMovementButtonState(this.isButtonForCameraMovement);
-    }
-    
-    /// <summary>
-    /// カメラ移動ボタン押下時の処理を中継
-    /// </summary>
-    /// <param name="directionStr"></param>
-    public void OnClickCameraMovementButton(string directionStr)
-    {
-        // ボタン押下を一時的に無効化
-        this.SetMovementButtonEnableState(this.playerMovementController.CameraMoveSpeed);
-        // 実際の処理
-        this.playerMovementController.OnClickCameraMovementButton(directionStr);
-    }
-    
-    /// <summary>
     /// 移動ボタンのコンポネントEnableステート切り替え
     /// </summary>
     /// <param name="delay"></param>
@@ -333,6 +292,67 @@ public class UIButtonController : MonoBehaviour
             button.GetComponent<UIButtonImageStateController>().SetDisabledSprite();
     }
     
+    #endregion
+    
+    #region [03. ボタン押下処理]
+    
+    /// <summary>
+    /// 移動ボタンの表示切り替えボタン押下時の処理
+    /// </summary>
+    public void OnClickChangeMovementButtonStateButton()
+    {
+        if (this.isButtonForCameraMovement)
+        {
+            // カメラオプション変更
+            this.playerMovementController.SetCameraOptionOnPlayerMovementMode();
+            
+            // トリガーをセット
+            this.isButtonForCameraMovement = false;
+            
+            // ボタンImageの表示切り替え
+            // TODO :: アルファ時にSprite切り替えに変更
+            this.movementModeToggleButtonImage.color = Color.white;
+        }
+        else
+        {
+            // カメラオプション変更
+            this.playerMovementController.SetCameraOptionOnCameraMovementMode();
+            
+            // トリガーをセット
+            this.isButtonForCameraMovement = true;
+            
+            // ボタンImageの表示切り替え
+            // TODO :: アルファ時にSprite切り替えに変更
+            this.movementModeToggleButtonImage.color = Color.green;
+        }
+        
+        // 移動ボタンの表示切り替え
+        this.SetMovementButtonState(this.isButtonForCameraMovement);
+    }
+
+    /// <summary>
+    /// カメラ移動ボタン押下時の処理を中継
+    /// </summary>
+    /// <param name="directionStr"></param>
+    public void OnClickCameraMovementButton(string directionStr)
+    {
+        // ボタン押下を一時的に無効化
+        this.SetMovementButtonEnableState(this.playerMovementController.CameraMoveSpeed);
+        // 実際の処理
+        this.playerMovementController.OnClickCameraMovementButton(directionStr);
+    }
+    
+    /// <summary>
+    /// EventDialog終了ボタン押下時の処理
+    /// </summary>
+    public void OnClickEventDialogCloseButton(Transform eventDialog)
+    {
+        // EventDialog非表示
+        this.uIDialogController.CloseEventDialog(eventDialog, () =>
+        {
+            
+        } );
+    }
     #endregion
     
     #endregion
