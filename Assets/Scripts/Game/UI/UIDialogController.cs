@@ -736,24 +736,27 @@ public class UIDialogController : MonoBehaviour
                                     .SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(true)
                                     .OnComplete(() =>
                                     {
-                                        // LootedItemのName表示アニメーション
-                                        this.lootedItemNameObj.GetComponent<RectTransform>()
-                                            .DOSizeDelta(new Vector2(180f, 20f), 0.5f)
-                                            .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true)
-                                            .SetUpdate(true)
-                                            .OnComplete(() =>
-                                            {
-                                                // LootedItemのDescription表示アニメーション
-                                                this.lootedItemDescriptionObj.GetComponent<RectTransform>()
-                                                    .DOSizeDelta(new Vector2(180f, 100f), 0.5f)
-                                                    .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true)
-                                                    .SetUpdate(true)
-                                                    .OnComplete(() =>
-                                                    {
-                                                        // MapEvent実行
-                                                        this.mapEventManager.DoWhatMapEventDoes(targetMapEvent, targetMapEventController);
-                                                    });
-                                            });
+                                        // // LootedItemのName表示アニメーション
+                                        // this.lootedItemNameObj.GetComponent<RectTransform>()
+                                        //     .DOSizeDelta(new Vector2(180f, 20f), 0.5f)
+                                        //     .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true)
+                                        //     .SetUpdate(true)
+                                        //     .OnComplete(() =>
+                                        //     {
+                                        //         // LootedItemのDescription表示アニメーション
+                                        //         this.lootedItemDescriptionObj.GetComponent<RectTransform>()
+                                        //             .DOSizeDelta(new Vector2(180f, 100f), 0.5f)
+                                        //             .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true)
+                                        //             .SetUpdate(true)
+                                        //             .OnComplete(() =>
+                                        //             {
+                                        //                 // MapEvent実行
+                                        //                 this.mapEventManager.DoWhatMapEventDoes(targetMapEvent, targetMapEventController);
+                                        //             });
+                                        //     });
+                                        
+                                        // MapEvent実行
+                                        this.mapEventManager.DoWhatMapEventDoes(targetMapEvent, targetMapEventController);
                                     });
                             });
                         });

@@ -33,6 +33,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     private MapEventManager mapEventManager;
+    /// <summary>
+    /// PlayerStatusManager
+    /// </summary>
+    [SerializeField]
+    private PlayerStatusManager playerStatusManager;
     
     #endregion
     
@@ -148,6 +153,9 @@ public class GameManager : MonoBehaviour
         // PlayerをSpawn
         this.spawnManager.SpawnPlayerAtFirstTime(() =>
         {
+            // PlayerのStatusをセット
+            this.playerStatusManager.SetPlayerStatus();
+            
             onFinished?.Invoke();
         });
     } 
