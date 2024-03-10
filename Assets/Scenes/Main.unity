@@ -439,6 +439,7 @@ MonoBehaviour:
   mapGeneratingManager: {fileID: 2006054378}
   spawnManager: {fileID: 973208738}
   mapEventManager: {fileID: 2015362158}
+  playerStatusManager: {fileID: 1594321673}
 --- !u!4 &304505508
 Transform:
   m_ObjectHideFlags: 0
@@ -4481,8 +4482,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65366038b1006a246a151309a8dfd2e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiDialogController: {fileID: 0}
-  playerStatusManager: {fileID: 0}
+  uiDialogController: {fileID: 7443867217616967207}
+  playerStatusManager: {fileID: 1594321673}
   exitDoorPrefab: {fileID: 6561610988919138603, guid: 3fb51086a11f2d644a319bfbc0648580, type: 3}
   doorKeyPrefab: {fileID: 4277306725325343746, guid: 2d437c0778d75b94a97d7067f6794492, type: 3}
   enemyPrefab: {fileID: 4277306725325343746, guid: a7ecdbe323cf94d42a3746156c495bc3, type: 3}
