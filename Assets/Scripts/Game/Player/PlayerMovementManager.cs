@@ -239,7 +239,7 @@ public class PlayerMovementManager : MonoBehaviour
             }
         }
 
-        // Event発生なしの場合、即Loopを終了
+        // Event発生なしの場合
         if (this.mapInfo != null && this.mapInfo.IsMapEventFinished == true)
         {
             
