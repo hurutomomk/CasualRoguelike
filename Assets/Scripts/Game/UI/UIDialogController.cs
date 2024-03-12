@@ -192,26 +192,19 @@ public class UIDialogController : MonoBehaviour
     [SerializeField]
     private Transform exitDoorLog;
     /// <summary>
-    /// LootedItem Name Obj
+    /// LootedShrine Name Obj
     /// </summary>
     [SerializeField]
-    private GameObject lootedItemNameObj;
+    private GameObject lootedShrineNameObj;
     [SerializeField]
-    private Text lootedItemNameText;
+    private Text lootedShrineNameText;
     /// <summary>
-    /// LootedItem Description Obj
+    /// LootedShrine Description Obj
     /// </summary>
     [SerializeField]
-    private GameObject lootedItemDescriptionObj;
+    private GameObject lootedShrineDescriptionObj;
     [SerializeField]
-    private Text lootedItemDescriptionText;
-    /// <summary>
-    /// LootedItem Description Obj
-    /// </summary>
-    [SerializeField]
-    private GameObject inventoryVacantInfoLogObj;
-    [SerializeField]
-    private Text inventoryVacantInfoLogText;
+    private Text lootedShrineDescriptionText;
     /// <summary>
     /// Closeボタン
     /// </summary>
@@ -725,9 +718,9 @@ public class UIDialogController : MonoBehaviour
                         this.mapEventAnimator.GetComponent<AnimationCallBack>().EventOnPlayingAnimation(() =>
                         {
                             // 開示用のMapEventSpriteに変更
-                            // this.mapEventImage.sprite = targetMapEventController.LootedItem.itemSprite;
-                            // this.lootedItemNameText.text = targetMapEventController.LootedItem.itemName;
-                            // this.lootedItemDescriptionText.text = targetMapEventController.LootedItem.itemDescription;
+                            this.mapEventImage.sprite = targetMapEventController.LootedShrine.shrineSprite;
+                            this.lootedShrineNameText.text = targetMapEventController.LootedShrine.shrineName;
+                            this.lootedShrineDescriptionText.text = targetMapEventController.LootedShrine.shrineDescription;
 
                             DOVirtual.DelayedCall(1f, () =>
                             {
@@ -736,27 +729,24 @@ public class UIDialogController : MonoBehaviour
                                     .SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(true)
                                     .OnComplete(() =>
                                     {
-                                        // // LootedItemのName表示アニメーション
-                                        // this.lootedItemNameObj.GetComponent<RectTransform>()
-                                        //     .DOSizeDelta(new Vector2(180f, 20f), 0.5f)
-                                        //     .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true)
-                                        //     .SetUpdate(true)
-                                        //     .OnComplete(() =>
-                                        //     {
-                                        //         // LootedItemのDescription表示アニメーション
-                                        //         this.lootedItemDescriptionObj.GetComponent<RectTransform>()
-                                        //             .DOSizeDelta(new Vector2(180f, 100f), 0.5f)
-                                        //             .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true)
-                                        //             .SetUpdate(true)
-                                        //             .OnComplete(() =>
-                                        //             {
-                                        //                 // MapEvent実行
-                                        //                 this.mapEventManager.DoWhatMapEventDoes(targetMapEvent, targetMapEventController);
-                                        //             });
-                                        //     });
-                                        
-                                        // MapEvent実行
-                                        this.mapEventManager.DoWhatMapEventDoes(targetMapEvent, targetMapEventController);
+                                        // LootedShrineのName表示アニメーション
+                                        this.lootedShrineNameObj.GetComponent<RectTransform>()
+                                            .DOSizeDelta(new Vector2(180f, 20f), 0.5f)
+                                            .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true)
+                                            .SetUpdate(true)
+                                            .OnComplete(() =>
+                                            {
+                                                // LootedShrineのDescription表示アニメーション
+                                                this.lootedShrineDescriptionObj.GetComponent<RectTransform>()
+                                                    .DOSizeDelta(new Vector2(180f, 100f), 0.5f)
+                                                    .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true)
+                                                    .SetUpdate(true)
+                                                    .OnComplete(() =>
+                                                    {
+                                                        // MapEvent実行
+                                                        this.mapEventManager.DoWhatMapEventDoes(targetMapEvent, targetMapEventController);
+                                                    });
+                                            });
                                     });
                             });
                         });
@@ -784,37 +774,6 @@ public class UIDialogController : MonoBehaviour
                         });
                 });;
         }
-    }
-
-    /// <summary>
-    /// Inventory空き状況のLog表示
-    /// </summary>
-    /// <param name="isInventoryMax"></param>
-    /// <param name="onFinished"></param>
-    public void SetInventoryVacantInfoLog(bool isInventoryMax, Action onFinished)
-    {
-        // Inventory空き状況で表示Text内容を変更
-        if (isInventoryMax)
-        {
-            this.inventoryVacantInfoLogText.text = "バッグがいっぱいだ\nItemは諦めよう";
-            this.inventoryVacantInfoLogText.color = new Color(0.9716981f, 0.4170968f, 0.4228849f);
-        }
-        else
-        {
-            this.inventoryVacantInfoLogText.text = "Itemをバッグに入れた";
-            this.inventoryVacantInfoLogText.color = new Color(0.9764706f, 0.8901961f, 0.8039216f);
-        }
-        
-        // Log表示アニメーション
-        this.inventoryVacantInfoLogObj.GetComponent<RectTransform>().DOSizeDelta(new Vector2(180f, 30f), 0.5f)
-            .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(true)
-            .OnComplete(() =>
-            {
-                // 終了ボタン表示
-                this.closeButton_EventDialog.SetActive(true);
-                        
-                onFinished?.Invoke();
-            });
     }
     
     #endregion

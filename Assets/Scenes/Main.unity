@@ -9717,86 +9717,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &7443867217557031880
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7443867217557031895}
-  - component: {fileID: 7443867217557031893}
-  - component: {fileID: 7443867217557031894}
-  m_Layer: 20
-  m_Name: InventoryVacantInfoLogText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!222 &7443867217557031893
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7443867217557031880}
-  m_CullTransparentMesh: 1
---- !u!114 &7443867217557031894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7443867217557031880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.97647065, g: 0.89019614, b: 0.80392164, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 11
-    m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 111
-    m_Alignment: 1
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "\u30D0\u30C3\u30B0\u304C\u3044\u3063\u3071\u3044\u3067\nItem\u304C\u5165\u3089\u306A\u3044"
---- !u!224 &7443867217557031895
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7443867217557031880}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7443867217857841275}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -35.4}
-  m_SizeDelta: {x: 180, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7443867217589390363
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10316,12 +10236,10 @@ MonoBehaviour:
   mapEventLogObj: {fileID: 7443867217461530948}
   mapEventLogText: {fileID: 7443867219370804397}
   exitDoorLog: {fileID: 7443867217763960545}
-  lootedItemNameObj: {fileID: 0}
-  lootedItemNameText: {fileID: 0}
-  lootedItemDescriptionObj: {fileID: 0}
-  lootedItemDescriptionText: {fileID: 0}
-  inventoryVacantInfoLogObj: {fileID: 0}
-  inventoryVacantInfoLogText: {fileID: 0}
+  lootedShrineNameObj: {fileID: 7443867219395904042}
+  lootedShrineNameText: {fileID: 7443867218453086679}
+  lootedShrineDescriptionObj: {fileID: 7443867219503588364}
+  lootedShrineDescriptionText: {fileID: 7443867218156802222}
   closeButton_EventDialog: {fileID: 7443867217640433058}
   levelUpDialogTitleImage: {fileID: 7443867218597768301}
   levelUpDialogSubtitleObj: {fileID: 7443867218219189202}
@@ -11796,58 +11714,6 @@ GameObject:
   - component: {fileID: 7443867217829804235}
   m_Layer: 21
   m_Name: NameText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &7443867217857841274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7443867217857841276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding: {x: 0, y: 0, z: 0, w: 0}
-  m_Softness: {x: 0, y: 0}
---- !u!224 &7443867217857841275
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7443867217857841276}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7443867217557031895}
-  m_Father: {fileID: 7443867218828068958}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -102.3}
-  m_SizeDelta: {x: 180, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &7443867217857841276
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7443867217857841275}
-  - component: {fileID: 7443867217857841274}
-  m_Layer: 20
-  m_Name: InventoryVacantInfoLog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16865,7 +16731,6 @@ RectTransform:
   m_Children:
   - {fileID: 7443867219395904041}
   - {fileID: 7443867219503588363}
-  - {fileID: 7443867217857841275}
   m_Father: {fileID: 7443867218850182449}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16884,7 +16749,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7443867218828068958}
   m_Layer: 20
-  m_Name: LootItemLog
+  m_Name: LootShrineLog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
