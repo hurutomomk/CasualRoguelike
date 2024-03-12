@@ -15,9 +15,9 @@ MonoBehaviour:
   shrineID: 38
   shrineSprite: {fileID: 21300000, guid: b9e9dfd25740ab54b8362e7b2172ec64, type: 3}
   shrineName: Common Cursed Shrine
-  shrineDescription: Max HP -5
-  hp: 0
-  maxHp: -5
+  shrineDescription: HP -3
+  hp: -3
+  maxHp: 0
   attack: 0
   critical: 0
   defence: 0

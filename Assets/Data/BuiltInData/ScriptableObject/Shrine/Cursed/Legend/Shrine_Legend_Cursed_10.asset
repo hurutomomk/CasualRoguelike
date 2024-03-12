@@ -17,12 +17,12 @@ MonoBehaviour:
   shrineName: Legend Cursed Shrine
   shrineDescription: 'HP -20
 
-    Max HP -10
+    CRI -2
 
     AGI -1'
   hp: -20
-  maxHp: -10
+  maxHp: 0
   attack: 0
-  critical: 0
+  critical: -2
   defence: 0
   agility: -1

@@ -15,11 +15,11 @@ MonoBehaviour:
   shrineID: 48
   shrineSprite: {fileID: 21300000, guid: 453dd6a676c1a9545a18502cae1eb4d3, type: 3}
   shrineName: Epic Cursed Shrine
-  shrineDescription: 'Max HP -5
+  shrineDescription: 'HP -5
 
     CRI -1'
-  hp: 0
-  maxHp: -5
+  hp: -5
+  maxHp: 0
   attack: 0
   critical: -1
   defence: 0
