@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 356d388ea2383674c81772be68e3a0bf, type: 3}
-  m_Name: Shrine_Normal_Cursed_5
+  m_Name: Shrine_Common_Cursed_5
   m_EditorClassIdentifier: 
   shrineID: 34
   shrineSprite: {fileID: 21300000, guid: b9e9dfd25740ab54b8362e7b2172ec64, type: 3}
-  shrineName: Normal Cursed Shrine
+  shrineName: Common Cursed Shrine
   shrineDescription: DEF -1
   hp: 0
   maxHp: 0

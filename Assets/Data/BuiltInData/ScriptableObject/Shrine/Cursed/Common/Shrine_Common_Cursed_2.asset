@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 356d388ea2383674c81772be68e3a0bf, type: 3}
-  m_Name: Shrine_Normal_Blessed_5
+  m_Name: Shrine_Common_Cursed_2
   m_EditorClassIdentifier: 
-  shrineID: 4
-  shrineSprite: {fileID: 21300000, guid: 0d83a8d51569ef04d8a2693c68c313a8, type: 3}
-  shrineName: Normal Blessed Shrine
-  shrineDescription: DEF +1
-  hp: 0
+  shrineID: 31
+  shrineSprite: {fileID: 21300000, guid: b9e9dfd25740ab54b8362e7b2172ec64, type: 3}
+  shrineName: Common Cursed Shrine
+  shrineDescription: HP -5
+  hp: -5
   maxHp: 0
   attack: 0
   critical: 0
-  defence: 1
+  defence: 0
   agility: 0

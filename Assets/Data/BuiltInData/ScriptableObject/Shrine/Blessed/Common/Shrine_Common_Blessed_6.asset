@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 356d388ea2383674c81772be68e3a0bf, type: 3}
-  m_Name: Shrine_Normal_Blessed_3
+  m_Name: Shrine_Common_Blessed_6
   m_EditorClassIdentifier: 
-  shrineID: 2
+  shrineID: 5
   shrineSprite: {fileID: 21300000, guid: 0d83a8d51569ef04d8a2693c68c313a8, type: 3}
-  shrineName: Normal Blessed Shrine
-  shrineDescription: ATK +2
+  shrineName: Common Blessed Shrine
+  shrineDescription: AGI +1
   hp: 0
   maxHp: 0
-  attack: 2
+  attack: 0
   critical: 0
   defence: 0
-  agility: 0
+  agility: 1
