@@ -543,58 +543,23 @@ public class PlayerStatusManager : MonoBehaviour
     
     #endregion
     
-    #region [05. Item取得、放棄時のステータス変動処理]
+    #region [05. Shrine取得時のステータス変動処理]
     /// <summary>
-    /// Item取得時のステータス変動
+    /// Shrine取得時のステータス変動
     /// </summary>
-    /// <param name="item"></param>
-    // public void AddStatusBonus(Item item)
-    // {
-    //     if(item.maxHp > 0)
-    //     {
-    //         this.IncreaseMaxHp(item.maxHp);
-    //         this.IncreaseHp(item.maxHp);
-    //     }
-    //     
-    //     if(item.attack > 0)
-    //         this.IncreaseAttack(item.attack);
-    //     
-    //     if(item.critical > 0)
-    //         this.IncreaseCritical(item.critical);
-    //     
-    //     if(item.defence > 0)
-    //         this.IncreaseDefence(item.defence);
-    //     
-    //     if(item.agility > 0)
-    //         this.IncreaseAgility(item.agility);
-    //     
-    //     // 各種StatusのTEXTを一斉更新
-    //     this.SetAllStatusTexts();
-    // }
-    // /// <summary>
-    // /// Item放棄時のステータス変動
-    // /// </summary>
-    // /// <param name="item"></param>
-    // public void SubStatusBonus(Item item)
-    // {
-    //     if(item.maxHp > 0)
-    //         this.DecreaseMaxHp(item.maxHp);
-    //     
-    //     if(item.attack > 0)
-    //         this.DecreaseAttack(item.attack);
-    //     
-    //     if(item.critical > 0)
-    //         this.DecreaseCritical(item.critical);
-    //     
-    //     if(item.defence > 0)
-    //         this.DecreaseDefence(item.defence);
-    //     
-    //     if(item.agility > 0)
-    //         this.DecreaseAgility(item.agility);
-    //     
-    //     // 各種StatusのTEXTを一斉更新
-    //     this.SetAllStatusTexts();
-    // }
+    /// <param name="Shrine"></param>
+    public void AddStatusBonus(Shrine shrine)
+    {
+        this.IncreaseMaxHp(shrine.maxHp);
+        this.IncreaseHp(shrine.hp);
+        this.IncreaseAttack(shrine.attack);
+        this.IncreaseCritical(shrine.critical);
+        this.IncreaseDefence(shrine.defence);
+        this.IncreaseAgility(shrine.agility);
+        
+        // 各種StatusのTEXTを一斉更新
+        this.SetAllStatusTexts();
+    }
     #endregion
     
     #region [06. 演出 関連]

@@ -385,6 +385,7 @@ public class MapEventManager : MonoBehaviour
             case 2:
                 break;
             case 3:
+                this.playerStatusManager.AddStatusBonus(targetMapEventController.LootedShrine);
                 break;
         }
     }
