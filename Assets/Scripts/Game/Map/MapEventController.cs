@@ -26,6 +26,12 @@ public class MapEventController : MonoBehaviour
     [SerializeField]
     private float eventSpriteFinishedAlpha = 0.35f;
 
+    [Header(" --- Looted Shrine")]
+    /// <summary>
+    /// LootBoxから出たアイテム
+    /// </summary>
+    private Shrine lootedShrine;
+    public Shrine LootedShrine { get => this.lootedShrine; }
     #endregion
 
 
@@ -62,5 +68,13 @@ public class MapEventController : MonoBehaviour
         this.eventSprite.sprite = mapEvent.eventSprite_Change;
     }
 
+    /// <summary>
+    /// LootingしたShrineを保存
+    /// </summary>
+    /// <param name="shrine"></param>
+    public void SetLootedShrine(Shrine shrine)
+    {
+        this.lootedShrine = shrine;
+    }
     #endregion
 }
