@@ -242,7 +242,11 @@ public class PlayerMovementManager : MonoBehaviour
         // Event発生なしの場合
         if (this.mapInfo != null && this.mapInfo.IsMapEventFinished == true)
         {
-            
+            DOVirtual.DelayedCall(0.1f, () =>
+            {
+                // ボタンタッチ有効
+                this.uIbuttonController.EnableButtonTouchExceptMovementButton();
+            });
         }
         
         // Player移動終了まで待機
@@ -251,7 +255,7 @@ public class PlayerMovementManager : MonoBehaviour
         // CheckEventコルーチン停止
         this.StopCheckEventCoroutine();
     }
-    
+
     /// <summary>
     /// CheckEventコルーチン停止
     /// </summary>
@@ -261,12 +265,6 @@ public class PlayerMovementManager : MonoBehaviour
         {
             StopCoroutine(this.coroutine);
             this.coroutine = null;
-            
-            DOVirtual.DelayedCall(.2f, () =>
-            {
-                // ボタンタッチ有効
-                this.uIbuttonController.EnableButtonTouchExceptMovementButton();
-            });
         });
     }
     #endregion
