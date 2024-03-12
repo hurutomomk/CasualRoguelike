@@ -57,6 +57,36 @@ public class MapEventManager : MonoBehaviour
     private int totalMapCollectNum;
     private int enemyNum;
     
+    /// <summary>
+    /// ExitDoorOpen関連
+    /// </summary>
+    private MapEventController lootShrineMapEventController;
+    
+    [Header(" --- Looting Shrine List")]
+    /// <summary>
+    /// Common Shrine List
+    /// </summary>
+    [SerializeField]
+    private List<Shrine> commonShrineList = new List<Shrine>();
+    /// <summary>
+    /// Epic Shrine List
+    /// </summary>
+    [SerializeField]
+    private List<Shrine> epicShrineList = new List<Shrine>();
+    /// <summary>
+    /// Legend Shrine List
+    /// </summary>
+    [SerializeField]
+    private List<Shrine> legendShrineList = new List<Shrine>();
+
+    /// <summary>
+    /// Shrineの各ランク毎の選定率
+    /// </summary>
+    [SerializeField]
+    private float commonRate = 0f;
+    [SerializeField]
+    private float epicRate = 0f;
+    
     #endregion
     
     
@@ -102,8 +132,6 @@ public class MapEventManager : MonoBehaviour
             });
         });
     }
-
-    #endregion
 
     #region [001. SetExitDoor]
     /// <summary>
@@ -277,6 +305,8 @@ public class MapEventManager : MonoBehaviour
             {
                 // DoorKeyを生成
                 var shrineObj = Instantiate(this.shrinePrefab, mapInfo.MapEventRoot);
+                // LootBoxのMapEventControllerを個別に記録
+                this.lootShrineMapEventController = shrineObj.GetComponent<MapEventController>();
                 
                 // セット済みトリガー
                 mapInfo.SetMapEventSettingTriggerOn();
@@ -284,12 +314,52 @@ public class MapEventManager : MonoBehaviour
                 mapInfo.SetMapEventController(shrineObj.GetComponent<MapEventController>());
                 // MapのGameObject名の後ろにEvent名を追加
                 mapInfo.SetEventNameOnMapName("Shrine");
+                
+                // LootBoxから出るItemを前もって抽選
+                this.lootShrineMapEventController.SetLootedShrine(this.LootingShrine());
             }
         }
 
         onFinished?.Invoke();
     }
     #endregion
+    
+    #endregion
+
+    
+    
+    #region [02. Looting Shrine]
+    /// <summary>
+    /// Shrine Looting
+    /// </summary>
+    private Shrine LootingShrine()
+    {
+        Shrine shrine = null;
+        
+        // Item選定
+        float randomLotNum = UnityEngine.Random.Range(0, 100);
+        if (randomLotNum <= this.commonRate)
+        {
+            int randomShrineNum = UnityEngine.Random.Range(0, this.commonShrineList.Count);
+            shrine = this.commonShrineList[randomShrineNum];
+        }
+        else if (this.commonRate < randomLotNum && randomLotNum <= this.commonRate + this.epicRate)
+        {
+            int randomShrineNum = UnityEngine.Random.Range(0, this.epicShrineList.Count);
+            shrine = this.epicShrineList[randomShrineNum];
+        }
+        else if (this.commonRate + this.epicRate < randomLotNum && randomLotNum <= 100f)
+        {
+            int randomShrineNum = UnityEngine.Random.Range(0, this.legendShrineList.Count);
+            shrine = this.legendShrineList[randomShrineNum];
+        }
+        
+        return shrine;
+    }
+
+    #endregion
+    
+    
 
     #region [03. Event Execution]
     /// <summary>
