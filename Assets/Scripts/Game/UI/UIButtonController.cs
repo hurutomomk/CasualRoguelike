@@ -350,7 +350,8 @@ public class UIButtonController : MonoBehaviour
         // EventDialog非表示
         this.uIDialogController.CloseEventDialog(eventDialog, () =>
         {
-            
+            // ボタンタッチ有効
+            this.EnableButtonTouchExceptMovementButton();
         } );
     }
     #endregion

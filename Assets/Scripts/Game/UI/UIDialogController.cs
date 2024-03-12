@@ -639,9 +639,8 @@ public class UIDialogController : MonoBehaviour
         this.mapEventImage.sprite = null;
         this.mapEventAnimator.transform.localPosition = Vector3.zero;
         this.mapEventLogObj.GetComponent<RectTransform>().sizeDelta = new Vector2(180f, 0f);
-        //this.lootedItemNameObj.GetComponent<RectTransform>().sizeDelta = new Vector2(180f, 0f);
-        //this.lootedItemDescriptionObj.GetComponent<RectTransform>().sizeDelta = new Vector2(180f, 0f);
-        //this.inventoryVacantInfoLogObj.GetComponent<RectTransform>().sizeDelta = new Vector2(180f, 0f);
+        this.lootedShrineNameObj.GetComponent<RectTransform>().sizeDelta = new Vector2(180f, 0f);
+        this.lootedShrineDescriptionObj.GetComponent<RectTransform>().sizeDelta = new Vector2(180f, 0f);
         
         this.closeButton_EventDialog.SetActive(false);
     }
@@ -743,6 +742,8 @@ public class UIDialogController : MonoBehaviour
                                                     .SetUpdate(true)
                                                     .OnComplete(() =>
                                                     {
+                                                        // ボタン表示
+                                                        this.closeButton_EventDialog.SetActive(true);
                                                         // MapEvent実行
                                                         this.mapEventManager.DoWhatMapEventDoes(targetMapEvent, targetMapEventController);
                                                     });
