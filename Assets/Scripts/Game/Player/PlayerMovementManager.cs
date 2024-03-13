@@ -154,7 +154,7 @@ public class PlayerMovementManager : MonoBehaviour
         });
         
         // Player移動終了まで待機
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         
         // PlayerTurnコルーチン停止
         this.StopPlayerTurnCoroutine(directionStr);
@@ -238,19 +238,18 @@ public class PlayerMovementManager : MonoBehaviour
                 isEventDialogOpened = true;
             }
         }
-
         // Event発生なしの場合
-        if (this.mapInfo != null && this.mapInfo.IsMapEventFinished == true)
+        else if (this.mapInfo != null && this.mapInfo.IsMapEventFinished == true)
         {
-            DOVirtual.DelayedCall(0.1f, () =>
+            DOVirtual.DelayedCall(.5f, () =>
             {
                 // ボタンタッチ有効
                 this.uIbuttonController.EnableButtonTouchExceptMovementButton();
             });
         }
-        
+
         // Player移動終了まで待機
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.2f);
         
         // CheckEventコルーチン停止
         this.StopCheckEventCoroutine();
