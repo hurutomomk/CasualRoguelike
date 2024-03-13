@@ -272,7 +272,7 @@ public class MapInfo : MonoBehaviour
             this.FindNeighbor(new Vector3(0, nextPosY, 0), this.mapCorridorSprite_N, "South");
         
         if (this.canMoveToEast)
-            FindNeighbor(new Vector3(nextPosX, 0f, 0f), this.mapCorridorSprite_E, "West");
+            this.FindNeighbor(new Vector3(nextPosX, 0f, 0f), this.mapCorridorSprite_E, "West");
         
         if (this.canMoveToSouth)
             this.FindNeighbor(new Vector3(0, -nextPosY, 0), this.mapCorridorSprite_S, "North");
