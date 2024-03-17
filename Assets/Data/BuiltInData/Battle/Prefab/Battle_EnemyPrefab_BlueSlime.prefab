@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3484043459173465808}
   - component: {fileID: 3364289222379129313}
   - component: {fileID: 5810045079815602993}
+  - component: {fileID: 194479970576736634}
   m_Layer: 14
-  m_Name: Battle_EnemyPrefab_Slime
+  m_Name: Battle_EnemyPrefab_BlueSlime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,6 +68,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7794f6aee00544880681e9723df003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &194479970576736634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112920820876363490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 881c329766eb8e94f892eac9e22a6e03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 11400000, guid: 11d818b8bcb86154d9650803caead85f, type: 2}
+  hpOffset: 10
+  atkOffset: 3
+  criOffset: 2
+  defOffset: 2
+  agiOffset: 2
+  expOffset: 10
 --- !u!1 &3441616326878210085
 GameObject:
   m_ObjectHideFlags: 0

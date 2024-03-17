@@ -2680,6 +2680,7 @@ MonoBehaviour:
   playerDamageLogText: {fileID: 7443867218323138823}
   enemyDamageLogAnimator: {fileID: 7443867218718874488}
   enemyDamageLogText: {fileID: 7443867218786419444}
+  enemyPrefab: {fileID: 1112920820876363490, guid: 01f93aa91f0f3cb4aac7838eec1b4119, type: 3}
 --- !u!4 &1221412983
 Transform:
   m_ObjectHideFlags: 0

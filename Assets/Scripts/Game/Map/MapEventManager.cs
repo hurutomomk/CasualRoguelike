@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class MapEventManager : MonoBehaviour
@@ -383,6 +384,21 @@ public class MapEventManager : MonoBehaviour
                 this.playerStatusManager.IncreaseDoorKeyCount();
                 break;
             case 2:
+                // BattleDialog表示：PlayerBattleDialog
+                this.uiDialogController.
+                    ShowBattleDialog(this.uiDialogController.Dialog_Battle.transform, () =>
+                    {
+                        // Battle開始アニメーションの再生
+                        BattleManager.Instance.StartBattleAnim(0);
+                    });
+
+                DOVirtual.DelayedCall(0.15f, () =>
+                {
+                    // カメラアニメーションを再生
+                    PlayerMovementController.Instance.PlayCameraAnimOnBattleBegin(() => { });
+                });
+                    
+                Debug.LogFormat("Player Battle 開始", DColor.cyan);
                 break;
             case 3:
                 this.playerStatusManager.AddStatusBonus(targetMapEventController.LootedShrine);

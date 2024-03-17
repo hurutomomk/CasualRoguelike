@@ -384,16 +384,18 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     private void SetEnemyStatus(Action onFinished)
     {
+        this.enemyStatusController = this.enemyPrefab.GetComponent<EnemyStatusController>();
+        
         // セット
-        this.enemyName = enemyStatusController.Name;
-        this.enemyLevel = enemyStatusController.Level;
-        this.enemyCurrentHp = enemyStatusController.CurrentHp;
-        this.enemyMaxHp = enemyStatusController.MaxHp;
-        this.enemyAttack = enemyStatusController.Attack;
-        this.enemyCritical = enemyStatusController.Critical;
-        this.enemyDefence = enemyStatusController.Defence;
-        this.enemyAgility = enemyStatusController.Agility;
-        this.enemyExpValue = enemyStatusController.ExpValue;
+        this.enemyName = this.enemyStatusController.Name;
+        this.enemyLevel = this.enemyStatusController.Level;
+        this.enemyCurrentHp = this.enemyStatusController.CurrentHp;
+        this.enemyMaxHp = this.enemyStatusController.MaxHp;
+        this.enemyAttack = this.enemyStatusController.Attack;
+        this.enemyCritical = this.enemyStatusController.Critical;
+        this.enemyDefence = this.enemyStatusController.Defence;
+        this.enemyAgility = this.enemyStatusController.Agility;
+        this.enemyExpValue = this.enemyStatusController.ExpValue;
               
         // UnitのATK比較および結果を表示
         if (this.enemyAttack - this.playerAttack > 0) this.SetActiveStatusStateObj(this.enemyAttackStateObj_Up, this.playerAttackStateObj_Down);
@@ -454,6 +456,10 @@ public class BattleManager : MonoBehaviour
     #endregion
               
     #region [002. BattleStart時（MainBattle開始前）]
+
+    [SerializeField]
+    private GameObject enemyPrefab;
+    
     
     /// <summary>
     /// BattleStart
@@ -467,7 +473,7 @@ public class BattleManager : MonoBehaviour
         this.Init();
                                      
         // EnemyのBattlePrefabを生成
-        this.enemyBattlePrefab = (GameObject) Instantiate(this.enemyInfo.battlePrefab, this.enemyRootTransform);
+        this.enemyBattlePrefab = (GameObject) Instantiate(this.enemyPrefab, this.enemyRootTransform);
         this.enemyAnimator = enemyBattlePrefab.GetComponent<Animator>();                          
                                      
         // UnitのStatusをBattleStatusViewにセット
