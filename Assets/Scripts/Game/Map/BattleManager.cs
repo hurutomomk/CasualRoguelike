@@ -344,9 +344,6 @@ public class BattleManager : MonoBehaviour
         this.enemyAnimator = enemyBattlePrefab.GetComponent<Animator>();  
         this.enemyStatusController = this.enemyBattlePrefab.GetComponent<EnemyStatusController>();
         this.enemyInfo = this.enemyStatusController.Enemy;
-        
-        
-        Debug.LogFormat("2222222222222222222" + this.enemyStatusController.Name);
     }
                   
     /// <summary>
@@ -393,9 +390,7 @@ public class BattleManager : MonoBehaviour
     {
         // セット
         this.enemyName = this.enemyStatusController.Name;
-        Debug.LogFormat("11111" + enemyStatusController.Name);
         this.enemyLevel = this.enemyStatusController.Level;
-        Debug.LogFormat("11111" + this.enemyLevel);
         this.enemyCurrentHp = this.enemyStatusController.CurrentHp;
         this.enemyMaxHp = this.enemyStatusController.MaxHp;
         this.enemyAttack = this.enemyStatusController.Attack;
