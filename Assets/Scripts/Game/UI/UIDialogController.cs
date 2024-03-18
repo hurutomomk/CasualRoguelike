@@ -593,6 +593,34 @@ public class UIDialogController : MonoBehaviour
     }
     
     /// <summary>
+    /// EventDialogの非表示
+    /// </summary>
+    public void CloseEventDialog()
+    {
+        // アニメーション
+        this.dialog_Event.transform.DOScale(0f, this.closeSpeed_LongDialog)
+            .From(this.openScale)
+            .SetEase(this.battleDialogEase)
+            .SetAutoKill(true)
+            .SetUpdate(true)
+            .OnComplete(() =>
+            {
+                // 初期化
+                this.InitEventDialog();
+                
+                // ボタン押下有効
+                this.uIButtonController.EnableButtonTouch();
+                
+                if(this.eventDialogTargetMapInfo.MapEventController.MapEvent.eventID != 0)
+                    // 該当MapEventの終了トリガーを発動
+                    this.eventDialogTargetMapInfo.SetMapEventFinishedTriggerOn();
+
+                // スケール変更
+                this.dialog_Event.transform.localScale = this.closeScale;
+            });
+    }
+    
+    /// <summary>
     /// 
     /// </summary>
     /// <param name="onFinished"></param>
@@ -684,20 +712,23 @@ public class UIDialogController : MonoBehaviour
                     // 該当MapEventがEnemyだった場合
                     else if (targetMapEvent.eventID == 2)
                     {
-                        // 移動アニメーション
-                        this.mapEventAnimator.transform.DOLocalMove(new Vector3(0f, 45f, 0f), 0.5f)
-                            .SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(true)
-                            .OnComplete(() =>
-                            {
-                                // Log表示アニメーション
-                                this.mapEventLogObj.GetComponent<RectTransform>().DOSizeDelta(new Vector2(180f, 100f), 0.5f)
-                                    .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(true)
-                                    .OnComplete(() =>
-                                    {
-                                        // MapEvent実行
-                                        this.mapEventManager.DoWhatMapEventDoes(targetMapEvent, targetMapEventController);
-                                    });
-                            });;
+                        // // 移動アニメーション
+                        // this.mapEventAnimator.transform.DOLocalMove(new Vector3(0f, 45f, 0f), 0.5f)
+                        //     .SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(true)
+                        //     .OnComplete(() =>
+                        //     {
+                        //         // Log表示アニメーション
+                        //         this.mapEventLogObj.GetComponent<RectTransform>().DOSizeDelta(new Vector2(180f, 100f), 0.5f)
+                        //             .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(true)
+                        //             .OnComplete(() =>
+                        //             {
+                        //                 // MapEvent実行
+                        //                 this.mapEventManager.DoWhatMapEventDoes(targetMapEvent, targetMapEventController);
+                        //             });
+                        //     });;
+                        
+                        // MapEvent実行
+                        this.mapEventManager.DoWhatMapEventDoes(targetMapEvent, targetMapEventController);
                     }
                     // 該当MapEventがShrineだった場合
                     else if (targetMapEvent.eventID == 3)

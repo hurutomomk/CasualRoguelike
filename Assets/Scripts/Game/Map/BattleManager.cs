@@ -330,6 +330,9 @@ public class BattleManager : MonoBehaviour
     
     
 
+    /// <summary>
+    /// EnemyBattlePrefab
+    /// </summary>
     [SerializeField]
     private GameObject enemyPrefab;
 

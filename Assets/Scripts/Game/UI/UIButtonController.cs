@@ -365,6 +365,8 @@ public class UIButtonController : MonoBehaviour
     /// </summary>
     public void OnClickBattleCloseButtonOnPlayerTurn(Transform battleDialog)
     {
+        this.uIDialogController.CloseEventDialog();
+        
         // Battle終了
         this.battleManager.EndBattle();
     }
