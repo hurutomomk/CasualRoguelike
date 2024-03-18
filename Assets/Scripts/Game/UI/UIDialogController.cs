@@ -343,12 +343,6 @@ public class UIDialogController : MonoBehaviour
                 
                 // スケール変更
                 dialogTransform.localScale = this.closeScale;
-                
-                // // 初期化
-                // if(dialogTransform.name == "ItemLog")
-                // {
-                //     this.SetItemLogNull();
-                // }
             });
     }
     #endregion
@@ -700,8 +694,6 @@ public class UIDialogController : MonoBehaviour
                                     .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(true)
                                     .OnComplete(() =>
                                     {
-                                        // ボタン表示
-                                        this.closeButton_EventDialog.SetActive(true);
                                         // MapEvent実行
                                         this.mapEventManager.DoWhatMapEventDoes(targetMapEvent, targetMapEventController);
                                     });

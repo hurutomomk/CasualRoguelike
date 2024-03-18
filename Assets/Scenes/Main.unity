@@ -684,6 +684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovementController: {fileID: 0}
   uIDialogController: {fileID: 7443867217616967207}
+  battleManager: {fileID: 1221412982}
   settingButton: {fileID: 421575745}
   movementModeToggleButton: {fileID: 598465767}
   movementButtonsForPlayer:
@@ -4485,6 +4486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiDialogController: {fileID: 7443867217616967207}
   playerStatusManager: {fileID: 1594321673}
+  battleManager: {fileID: 1221412982}
   exitDoorPrefab: {fileID: 6561610988919138603, guid: 3fb51086a11f2d644a319bfbc0648580, type: 3}
   doorKeyPrefab: {fileID: 4277306725325343746, guid: 2d437c0778d75b94a97d7067f6794492, type: 3}
   enemyPrefab: {fileID: 4277306725325343746, guid: a7ecdbe323cf94d42a3746156c495bc3, type: 3}
@@ -9083,7 +9085,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 359602440}
         m_TargetAssemblyTypeName: UIButtonController, Assembly-CSharp
         m_MethodName: OnClickBattleCloseButtonOnPlayerTurn
         m_Mode: 2
