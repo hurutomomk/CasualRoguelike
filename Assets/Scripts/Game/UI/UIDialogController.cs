@@ -922,7 +922,50 @@ public class UIDialogController : MonoBehaviour
             });
     }
 
-    
+    /// <summary>
+    /// StatusBonusボタン押下時の処理
+    /// </summary>
+    /// <param name="buttonNum"></param>
+    public void OnClickStatusBonusButton(int buttonNum)
+    {
+        // 該当ボタンのボタンコンポネントおよびImage表示を無効化
+        this.statusButtonList[buttonNum -1].enabled = false;
+        this.statusButtonList[buttonNum - 1].GetComponent<Image>().enabled = false;
+        
+        // StatusBonus値
+        var randomStatusValue = 0;
+        
+        switch (this.statusStringList[buttonNum - 1])
+        {
+            case "Max HP":
+                randomStatusValue = UnityEngine.Random.Range(15, 51); // Bonus値を選定
+                PlayerStatusManager.Instance.IncreaseMaxHp(randomStatusValue); // 該当Statusに加算
+                break;
+            case "ATK":
+                randomStatusValue = UnityEngine.Random.Range(5, 16); // Bonus値を選定
+                PlayerStatusManager.Instance.IncreaseAttack(randomStatusValue); // 該当Statusに加算
+                break;
+            case "CRI":
+                randomStatusValue = UnityEngine.Random.Range(2, 11); // Bonus値を選定
+                PlayerStatusManager.Instance.IncreaseCritical(randomStatusValue); // 該当Statusに加算
+                break;
+            case "DEF":
+                randomStatusValue = UnityEngine.Random.Range(5, 15); // Bonus値を選定
+                PlayerStatusManager.Instance.IncreaseDefence(randomStatusValue); // 該当Statusに加算
+                break;
+            case "AGI":
+                randomStatusValue = UnityEngine.Random.Range(2, 11); // Bonus値を選定
+                PlayerStatusManager.Instance.IncreaseAgility(randomStatusValue); // 該当Statusに加算
+                break;
+        }
+        
+        // Textをセット
+        this.statusTextList[buttonNum - 1].color = new Color(0.1933962f, 0.4911714f, 1f);
+        this.statusTextList[buttonNum - 1].text = this.statusStringList[buttonNum - 1] + " +" + randomStatusValue.ToString();
+
+        //  ボタン押下回数を集計
+        this.AddBonusStatusButtonPushedCount();
+    }
     
     /// <summary>
     /// ボタン押下回数を集計
