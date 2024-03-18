@@ -21,6 +21,11 @@ public class UIButtonController : MonoBehaviour
     /// </summary>
     [SerializeField]
     private UIDialogController uIDialogController;
+    /// <summary>
+    /// BattleManager
+    /// </summary>
+    [SerializeField]
+    private BattleManager battleManager;
     #endregion
 
     #region [02. ボタン]
@@ -353,6 +358,15 @@ public class UIButtonController : MonoBehaviour
             // ボタンタッチ有効
             this.EnableButtonTouchExceptMovementButton();
         } );
+    }
+    
+    /// <summary>
+    /// PlayerTurn時のバトル終了ボタン押下時の処理
+    /// </summary>
+    public void OnClickBattleCloseButtonOnPlayerTurn(Transform battleDialog)
+    {
+        // Battle終了
+        this.battleManager.EndBattle();
     }
     #endregion
     

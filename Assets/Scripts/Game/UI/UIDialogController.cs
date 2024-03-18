@@ -441,26 +441,26 @@ public class UIDialogController : MonoBehaviour
                             // PlayerWin時
                             else
                             {
-                                // // LogTextに獲得EXP量をセット
-                                // var expValue = BattleManager.Instance.EnemyExpValue;
-                                // this.resultExpLogText.text = "EXP +" + expValue.ToString();
-                                //
-                                // DOVirtual.DelayedCall(0.5f, () =>
-                                // {
-                                //     // 獲得EXP表示
-                                //     this.resultExpLogObj.GetComponent<RectTransform>().DOSizeDelta(new Vector2(180f, 40f), 0.3f)
-                                //         .From(new Vector2(180f, 0f))
-                                //         .SetEase(Ease.Linear)
-                                //         .SetAutoKill(true)
-                                //         .SetUpdate(true)
-                                //         .OnComplete(() =>
-                                //         {
-                                //             // Player EXP増加
-                                //             this.playerStatusManager.IncreaseExp(expValue);
-                                //
-                                //             onFinished?.Invoke();
-                                //         });
-                                // });
+                                // LogTextに獲得EXP量をセット
+                                var expValue = BattleManager.Instance.EnemyExpValue;
+                                this.resultExpLogText.text = "EXP +" + expValue.ToString();
+                                
+                                DOVirtual.DelayedCall(0.5f, () =>
+                                {
+                                    // 獲得EXP表示
+                                    this.resultExpLogObj.GetComponent<RectTransform>().DOSizeDelta(new Vector2(180f, 40f), 0.3f)
+                                        .From(new Vector2(180f, 0f))
+                                        .SetEase(Ease.Linear)
+                                        .SetAutoKill(true)
+                                        .SetUpdate(true)
+                                        .OnComplete(() =>
+                                        {
+                                            // Player EXP増加
+                                            this.playerStatusManager.IncreaseExp(expValue);
+                                
+                                            onFinished?.Invoke();
+                                        });
+                                });
                             }
                         });
                 });
