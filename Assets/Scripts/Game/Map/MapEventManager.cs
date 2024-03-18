@@ -384,6 +384,8 @@ public class MapEventManager : MonoBehaviour
                 this.playerStatusManager.IncreaseDoorKeyCount();
                 break;
             case 2:
+                BattleManager.Instance.InstantiateEnemy();
+                
                 // BattleDialog表示：PlayerBattleDialog
                 this.uiDialogController.
                     ShowBattleDialog(this.uiDialogController.Dialog_Battle.transform, () =>

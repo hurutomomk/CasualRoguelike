@@ -137,6 +137,11 @@ public class EnemyStatusController : MonoBehaviour
         this.agility = UnityEngine.Random.Range(enemy.minAgility, enemy.maxAgility + 1)
                        + (this.agiOffset * this.level);
         this.expValue = enemy.expValue + (this.expOffset * this.level);
+        
+        
+        Debug.LogFormat("00000" + this.enemyName);
+        
+        Debug.LogFormat("00000" + this.level);
     }
 
     #endregion
