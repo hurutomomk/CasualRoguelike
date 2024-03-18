@@ -684,6 +684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovementController: {fileID: 0}
   uIDialogController: {fileID: 7443867217616967207}
+  battleManager: {fileID: 1221412982}
   settingButton: {fileID: 421575745}
   movementModeToggleButton: {fileID: 598465767}
   movementButtonsForPlayer:
@@ -2680,6 +2681,7 @@ MonoBehaviour:
   playerDamageLogText: {fileID: 7443867218323138823}
   enemyDamageLogAnimator: {fileID: 7443867218718874488}
   enemyDamageLogText: {fileID: 7443867218786419444}
+  enemyPrefab: {fileID: 1112920820876363490, guid: 01f93aa91f0f3cb4aac7838eec1b4119, type: 3}
 --- !u!4 &1221412983
 Transform:
   m_ObjectHideFlags: 0
@@ -4484,6 +4486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiDialogController: {fileID: 7443867217616967207}
   playerStatusManager: {fileID: 1594321673}
+  battleManager: {fileID: 1221412982}
   exitDoorPrefab: {fileID: 6561610988919138603, guid: 3fb51086a11f2d644a319bfbc0648580, type: 3}
   doorKeyPrefab: {fileID: 4277306725325343746, guid: 2d437c0778d75b94a97d7067f6794492, type: 3}
   enemyPrefab: {fileID: 4277306725325343746, guid: a7ecdbe323cf94d42a3746156c495bc3, type: 3}
@@ -5410,7 +5413,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 367d3553595ddb74c90267d2abe9d37d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5cc7ce749a0fdf043b70588edceb4088, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5645,7 +5648,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 36ee77590974353419826d1aecfc7261, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 93c13e37e20895a4bb0a0a5032677c6c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5974,7 +5977,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 36ee77590974353419826d1aecfc7261, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 93c13e37e20895a4bb0a0a5032677c6c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6205,7 +6208,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7e7c26ff39303414fb765401ea94c71d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: da820d789b86b7d42bc2b7f5d8b290b9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6393,7 +6396,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ab11db8c03d151e46905bfaea39cf26a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 524aba9ed3c501a41b36bd91d3064c1e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6487,7 +6490,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 367d3553595ddb74c90267d2abe9d37d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5cc7ce749a0fdf043b70588edceb4088, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6539,7 +6542,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d2ed12e9c04037943b50f2b68ff54d4f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 620193306a4480a438f371efe6b7ebfb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9082,7 +9085,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 359602440}
         m_TargetAssemblyTypeName: UIButtonController, Assembly-CSharp
         m_MethodName: OnClickBattleCloseButtonOnPlayerTurn
         m_Mode: 2
@@ -11025,7 +11028,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a00f8b16da62fe643a0479296a7d60aa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 03edb5078e0c89e4ab122d6bb87ab88c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16117,7 +16120,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a00f8b16da62fe643a0479296a7d60aa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 03edb5078e0c89e4ab122d6bb87ab88c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20587,7 +20590,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ab11db8c03d151e46905bfaea39cf26a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 524aba9ed3c501a41b36bd91d3064c1e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20936,7 +20939,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d2ed12e9c04037943b50f2b68ff54d4f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 620193306a4480a438f371efe6b7ebfb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21247,7 +21250,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7e7c26ff39303414fb765401ea94c71d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: da820d789b86b7d42bc2b7f5d8b290b9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

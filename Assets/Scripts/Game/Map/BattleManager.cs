@@ -327,20 +327,27 @@ public class BattleManager : MonoBehaviour
     #region [01. Battle開始]
 
     #region [001. DataSet 関連]
+    
+    
+
+    /// <summary>
+    /// EnemyBattlePrefab
+    /// </summary>
+    [SerializeField]
+    private GameObject enemyPrefab;
+
+    
     /// <summary>
     /// Enemyの各種データをセット
     /// </summary>
-    /// <param name="enemyTransform"></param>
-    /// <param name="enemyInfo"></param>
-    // public void SetEnemyInfo(Transform enemyTransform, Enemy enemyInfo)
-    // { 
-    //     // ターゲットとなるEnemyColliderのTransformを登録
-    //     this.targetEnemyTransform = enemyTransform;
-    //     // EnemyのScriptableObject上のデータを登録
-    //     this.enemyInfo = enemyInfo;
-    //     // EnemyStatusControllerを登録
-    //     this.enemyStatusController = enemyTransform.parent.GetComponent<EnemyStatusController>();
-    // }
+    public void InstantiateEnemy()
+    {
+        // EnemyのBattlePrefabを生成
+        this.enemyBattlePrefab = (GameObject) Instantiate(this.enemyPrefab, this.enemyRootTransform);
+        this.enemyAnimator = enemyBattlePrefab.GetComponent<Animator>();  
+        this.enemyStatusController = this.enemyBattlePrefab.GetComponent<EnemyStatusController>();
+        this.enemyInfo = this.enemyStatusController.Enemy;
+    }
                   
     /// <summary>
     /// UnitのStatusをセット
@@ -385,15 +392,15 @@ public class BattleManager : MonoBehaviour
     private void SetEnemyStatus(Action onFinished)
     {
         // セット
-        this.enemyName = enemyStatusController.Name;
-        this.enemyLevel = enemyStatusController.Level;
-        this.enemyCurrentHp = enemyStatusController.CurrentHp;
-        this.enemyMaxHp = enemyStatusController.MaxHp;
-        this.enemyAttack = enemyStatusController.Attack;
-        this.enemyCritical = enemyStatusController.Critical;
-        this.enemyDefence = enemyStatusController.Defence;
-        this.enemyAgility = enemyStatusController.Agility;
-        this.enemyExpValue = enemyStatusController.ExpValue;
+        this.enemyName = this.enemyStatusController.Name;
+        this.enemyLevel = this.enemyStatusController.Level;
+        this.enemyCurrentHp = this.enemyStatusController.CurrentHp;
+        this.enemyMaxHp = this.enemyStatusController.MaxHp;
+        this.enemyAttack = this.enemyStatusController.Attack;
+        this.enemyCritical = this.enemyStatusController.Critical;
+        this.enemyDefence = this.enemyStatusController.Defence;
+        this.enemyAgility = this.enemyStatusController.Agility;
+        this.enemyExpValue = this.enemyStatusController.ExpValue;
               
         // UnitのATK比較および結果を表示
         if (this.enemyAttack - this.playerAttack > 0) this.SetActiveStatusStateObj(this.enemyAttackStateObj_Up, this.playerAttackStateObj_Down);
@@ -454,7 +461,7 @@ public class BattleManager : MonoBehaviour
     #endregion
               
     #region [002. BattleStart時（MainBattle開始前）]
-    
+
     /// <summary>
     /// BattleStart
     /// Player奇襲時：firstStrikeUnitNum = 0
@@ -464,11 +471,7 @@ public class BattleManager : MonoBehaviour
     public void StartBattleAnim(int firstStrikeUnitNum)
     {
         // 初期化
-        this.Init();
-                                     
-        // EnemyのBattlePrefabを生成
-        this.enemyBattlePrefab = (GameObject) Instantiate(this.enemyInfo.battlePrefab, this.enemyRootTransform);
-        this.enemyAnimator = enemyBattlePrefab.GetComponent<Animator>();                          
+        this.Init();                     
                                      
         // UnitのStatusをBattleStatusViewにセット
         this.SetUnitStatusData();                          
@@ -523,7 +526,7 @@ public class BattleManager : MonoBehaviour
         this.UnitEntryAnimOnNormalBattle(() =>
         { 
             // Battle開始
-            this.MainBattle();;
+            this.MainBattle();
         });                  
     }
     
