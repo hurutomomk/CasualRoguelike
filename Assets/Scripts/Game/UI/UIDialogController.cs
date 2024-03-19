@@ -249,6 +249,11 @@ public class UIDialogController : MonoBehaviour
     /// </summary>
     [SerializeField]
     private GameObject closeButton_LevelUpDialog;
+    /// <summary>
+    /// LevelUpDialogの終了ボタン
+    /// </summary>
+    [SerializeField]
+    private GameObject closeButton_StatusInfoDialog;
 
     /// <summary>
     /// StatusBonusボタンの最大値
@@ -1030,6 +1035,59 @@ public class UIDialogController : MonoBehaviour
     }
 
     #endregion
+
+
+
+    #region [08. Status Info Dialog]
+
+    /// <summary>
+    /// StatusInfoDialog表示
+    /// </summary>
+    /// <param name="statusInfoDialog"></param>
+    /// <param name="onFinished"></param>
+    public void ShowStatusInfoDialog(Transform statusInfoDialog, Action onFinished)
+    {
+        // スケール変更
+        statusInfoDialog.localScale = this.closeScale;
+        
+        // アニメーション
+        statusInfoDialog.DOScale(1f, this.openSpeed_LongDialog)
+            .From(this.closeScale)
+            .SetEase(this.battleDialogEase)
+            .SetAutoKill(true)
+            .SetUpdate(true)
+            .OnComplete(() =>
+            {
+                // 終了ボタン
+                this.closeButton_StatusInfoDialog.SetActive(true);
+                
+                onFinished?.Invoke();
+            });
+    }
     
+    /// <summary>
+    /// StatusInfoDialog非表示
+    /// </summary>
+    /// <param name="statusInfoDialog"></param>
+    /// <param name="onFinished"></param>
+    public void CloseStatusInfoDialog(Transform statusInfoDialog, Action onFinished)
+    {
+        // アニメーション
+        statusInfoDialog.DOScale(0f, this.closeSpeed_LongDialog)
+            .From(this.openScale)
+            .SetEase(this.battleDialogEase)
+            .SetAutoKill(true)
+            .SetUpdate(true)
+            .OnComplete(() =>
+            {
+                // スケール変更
+                statusInfoDialog.localScale = this.closeScale;
+            });
+    }
+
+    #endregion
+    
+
+
     #endregion
 }

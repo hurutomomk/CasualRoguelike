@@ -443,6 +443,26 @@ public class UIButtonController : MonoBehaviour
         // BattleDialog非表示
         this.uIDialogController.CloseLevelUpDialog(levelUpDialog, () => { });
     }
+    
+    /// <summary>
+    /// StatusInfoDialogの表示ボタン押下時の処理
+    /// </summary>
+    /// <param name="statusInfoDialog"></param>
+    public void OnClickStatusInfoDialogOpenButton(Transform statusInfoDialog)
+    {
+        // BattleDialog非表示
+        this.uIDialogController.ShowStatusInfoDialog(statusInfoDialog, () => { });
+    }
+    
+    /// <summary>
+    /// StatusInfoDialogの終了ボタン押下時の処理
+    /// </summary>
+    /// <param name="statusInfoDialog"></param>
+    public void OnClickStatusInfoDialogCloseButton(Transform statusInfoDialog)
+    {
+        // BattleDialog非表示
+        this.uIDialogController.CloseStatusInfoDialog(statusInfoDialog, () => { });
+    }
     #endregion
     
     #endregion
