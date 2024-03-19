@@ -245,9 +245,9 @@ public class PlayerStatusManager : MonoBehaviour
         this.expText.text = this.currentExp.ToString() + " / " + this.maxExp.ToString();
         this.hpText.text = this.currentHp.ToString() + " / " + this.maxHp.ToString();
         this.attackText.text = this.attack.ToString();
-        this.critiaclText.text = this.critical.ToString();
+        this.critiaclText.text = this.critical.ToString()+ " % ";
         this.defenceText.text = this.defence.ToString();
-        this.agilityText.text = this.agility.ToString();
+        this.agilityText.text = this.agility.ToString()+ " % ";
         this.doorKeyCountText.text = this.currentDoorKeyCount.ToString() + " / " + this.maxDoorKeyCount.ToString();
     }
     
