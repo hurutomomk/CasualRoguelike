@@ -1080,6 +1080,9 @@ public class UIDialogController : MonoBehaviour
             .SetUpdate(true)
             .OnComplete(() =>
             {
+                // 終了ボタン
+                this.closeButton_StatusInfoDialog.SetActive(false);
+                
                 // スケール変更
                 statusInfoDialog.localScale = this.closeScale;
             });

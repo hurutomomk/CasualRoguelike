@@ -42,6 +42,11 @@ public class UIButtonController : MonoBehaviour
     [SerializeField]
     private Button movementModeToggleButton;
     /// <summary>
+    /// StatusInfoボタン
+    /// </summary>
+    [SerializeField]
+    private Button statusInfoButton;
+    /// <summary>
     /// プレイヤーの移動ボタン
     /// </summary>
     [SerializeField]
@@ -204,8 +209,11 @@ public class UIButtonController : MonoBehaviour
         foreach (var button in this.movementButtonsForPlayer)　button.enabled = false;
         foreach (var button in this.movementButtonsForCamera)　button.enabled = false;
         
-        // LevelUpボタンのDeactive状態に変更
+        // LevelUpボタンのDisable
         this.SetLevelUpButtonActiveState(false);
+
+        // StatusInfoボタンをDisable
+        this.SetStatusInfoButtonActiveState(false);
         
         // ボタンイメージ変更
         this.SetButtonImageForDisable();
@@ -239,8 +247,11 @@ public class UIButtonController : MonoBehaviour
         foreach (var button in this.movementButtonsForPlayer)　button.enabled = false;
         foreach (var button in this.movementButtonsForCamera)　button.enabled = false;
 
-        // LevelUpボタンのDeactive状態に変更
+        // LevelUpボタンのDisable
         this.SetLevelUpButtonActiveState(false);
+
+        // StatusInfoボタンをDisable
+        this.SetStatusInfoButtonActiveState(false);
 
         // ボタンイメージ変更
         this.SetButtonImageForDisable();
@@ -259,6 +270,9 @@ public class UIButtonController : MonoBehaviour
         
         // LevelUpができる状態か否かを判断してLevelUpボタンのActiveStateを切り替え
         this.CheckLevelUpButtonCanActiveOrNot();
+
+        // StatusInfoボタンをEnable
+        this.SetStatusInfoButtonActiveState(true);
         
         // ボタンイメージ変更
         this.SetButtonImageForEnable();
@@ -282,6 +296,9 @@ public class UIButtonController : MonoBehaviour
             this.levelUpButtonObj.GetComponent<Button>().enabled = true;
             this.levelUpButtonObj.GetComponent<Image>().color = Color.white;
         }
+
+        // StatusInfoボタンをEnable
+        this.SetStatusInfoButtonActiveState(true);
         
         // ボタンイメージ変更
         foreach (var image in this.buttonImagesForDisableExceptMovementButton)
@@ -341,6 +358,16 @@ public class UIButtonController : MonoBehaviour
             this.levelUpButtonObj.GetComponent<Image>().color = Color.white;
         else
             this.levelUpButtonObj.GetComponent<Image>().color = Color.grey;
+    }
+    
+    public void SetStatusInfoButtonActiveState(bool state)
+    {
+        this.statusInfoButton.GetComponent<Button>().enabled = state;
+        
+        if(state)
+            this.statusInfoButton.GetComponent<Image>().color = Color.white;
+        else
+            this.statusInfoButton.GetComponent<Image>().color = Color.grey;
     }
     
     #endregion
