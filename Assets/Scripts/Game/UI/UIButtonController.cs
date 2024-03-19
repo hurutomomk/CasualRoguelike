@@ -154,7 +154,17 @@ public class UIButtonController : MonoBehaviour
     private Action onCompleteMovement;
     #endregion
 
+    #region [06. Pointerイメージ]
+    /// <summary>
+    /// カメラ移動時のポインター
+    /// </summary>
+    [SerializeField]
+    private Image cameraPointer;
+    
     #endregion
+    
+    #endregion
+    
     
     
     
@@ -174,7 +184,7 @@ public class UIButtonController : MonoBehaviour
     }
     #endregion
 
-    #region [02.]
+    #region [02. ボタンのステート管理]
     
     /// <summary>
     /// 移動ボタンの表示切り替え
@@ -186,6 +196,9 @@ public class UIButtonController : MonoBehaviour
         this.movementButtonObjForCamera.SetActive(state);
         // 移動可能方向のみボタン選択可に変更
         this.EnableButtonTouchExceptMovementButton();
+        
+        // カメラポインター表示ステート変更
+        this.SetCameraPointerAvtivation(state);
         
         // プレイヤー移動ボタンの表示ステート変更
         this.movementButtonObjForPlayer.SetActive(!state);
@@ -489,6 +502,17 @@ public class UIButtonController : MonoBehaviour
     {
         // BattleDialog非表示
         this.uIDialogController.CloseStatusInfoDialog(statusInfoDialog, () => { });
+    }
+    #endregion
+    
+    #region [04. Pointer表示]
+    /// <summary>
+    /// カメラ移動時のポインター表示切り替え
+    /// </summary>
+    /// <param name="state"></param>
+    public void SetCameraPointerAvtivation(bool state)
+    {
+        this.cameraPointer.enabled = state;
     }
     #endregion
     
