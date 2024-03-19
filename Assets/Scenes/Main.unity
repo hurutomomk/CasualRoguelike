@@ -687,6 +687,7 @@ MonoBehaviour:
   battleManager: {fileID: 1221412982}
   settingButton: {fileID: 421575745}
   movementModeToggleButton: {fileID: 598465767}
+  statusInfoButton: {fileID: 2980731679992817076}
   movementButtonsForPlayer:
   - {fileID: 2061828444}
   - {fileID: 733106486}
