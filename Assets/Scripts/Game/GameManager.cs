@@ -18,6 +18,11 @@ public class GameManager : MonoBehaviour
 
     #region [02. 参照]
     /// <summary>
+    /// LogoController
+    /// </summary>
+    [SerializeField]
+    private LogoController logoController;
+    /// <summary>
     /// TitleController
     /// </summary>
     [SerializeField]
@@ -93,9 +98,21 @@ public class GameManager : MonoBehaviour
     public void Logo()
     {
         // Logo表示
+        this.logoController.ShowLogo(() =>
+        {
+            // TransitionInEffect再生
+            this.transitionEffectController.PlayInEffect(() =>
+            {
+                // Logo非表示
+                this.logoController.OffLogo();
+            
+                // Title表示
+                this.Title();
         
-        // Title表示
-        this.Title();
+                // TransitionOutEffect再生
+                this.transitionEffectController.PlayOutEffect();
+            });
+        });
     }
     #endregion
     
