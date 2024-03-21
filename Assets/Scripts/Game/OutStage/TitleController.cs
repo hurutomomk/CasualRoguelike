@@ -99,7 +99,7 @@ public class TitleController : MonoBehaviour
         
         this.SetTitleScreen(true);
 
-        DOVirtual.DelayedCall(1f, () =>
+        DOVirtual.DelayedCall(2f, () =>
         {
             // TitleCurtainのフェードイン
             this.TitleCurtainOff(() => { });
