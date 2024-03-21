@@ -11088,7 +11088,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3681234941530499723}
         m_TargetAssemblyTypeName: TitleController, Assembly-CSharp
         m_MethodName: OnClickSkipButton
         m_Mode: 1
@@ -11592,8 +11592,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UITitleController, Assembly-CSharp
+      - m_Target: {fileID: 3681234941530499723}
+        m_TargetAssemblyTypeName: TitleController, Assembly-CSharp
         m_MethodName: OnClickStartButton
         m_Mode: 1
         m_Arguments:
@@ -11752,6 +11752,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3681234941530499717}
+  - component: {fileID: 3681234941530499723}
   m_Layer: 26
   m_Name: TitleController
   m_TagString: Untagged
@@ -11759,6 +11760,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3681234941530499723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3681234941530499722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 127d5e6c3f56abd4685cb0e2c2d86ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 3681234940874493470}
+  curtain: {fileID: 3681234941592184989}
+  titleScreen: {fileID: 3681234939971051738}
+  stageInfo: {fileID: 3681234941398159678}
+  stageGourp: {fileID: 3681234941280404129}
+  stageList:
+  - {fileID: 3681234940702282190}
+  - {fileID: 3681234941899751017}
+  - {fileID: 3681234940044656784}
+  - {fileID: 3681234941519619416}
+  - {fileID: 3681234940474692420}
+  - {fileID: 3681234940760357753}
+  - {fileID: 3681234940095130366}
+  - {fileID: 3681234939969670125}
+  - {fileID: 3681234940172580894}
+  - {fileID: 3681234941387744312}
+  stagePopupEase: 30
+  stageSlideEase: 1
 --- !u!224 &3681234941540434910
 RectTransform:
   m_ObjectHideFlags: 0
