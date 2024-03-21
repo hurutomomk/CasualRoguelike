@@ -512,6 +512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62790446f6bb904d9c712bc2c36bcb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleController: {fileID: 3681234941530499723}
+  transitionEffectController: {fileID: 3681234941760684727}
   mapGeneratingManager: {fileID: 2006054378}
   spawnManager: {fileID: 973208738}
   mapEventManager: {fileID: 2015362158}

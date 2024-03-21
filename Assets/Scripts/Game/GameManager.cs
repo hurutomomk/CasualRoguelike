@@ -17,7 +17,16 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region [02. 参照]
-    
+    /// <summary>
+    /// TitleController
+    /// </summary>
+    [SerializeField]
+    private TitleController titleController;
+    /// <summary>
+    /// TransitionEffectController
+    /// </summary>
+    [SerializeField]
+    private TransitionEffectController transitionEffectController;
     /// <summary>
     /// MapGeneratingManager
     /// </summary>
@@ -98,11 +107,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void Title()
     {
-        // 臨時
-        this.MapGeneratingSequence();
-
-        // 臨時
-        this.TransitionEffectOnTitleToStage();
+        // Title表示
+        this.titleController.ShowTitle();
     }
     #endregion
     
@@ -114,16 +120,31 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void TransitionEffectOnTitleToStage()
     {
-        this.mapGeneratingManager.MapGeneratingFinished(() =>
+        // TransitionInEffect再生
+        this.transitionEffectController.PlayInEffect(() =>
         {
-            // Spawnシーケンス
-            this.SpawnSequence(() =>
+            // Title非表示
+            this.titleController.SetStageInfo(false);
+            this.titleController.SetBackground(false);
+            
+            // Map自動生成シーケンス
+            this.MapGeneratingSequence();
+        
+            // Map生成終了
+            MapGeneratingManager.Instance.MapGeneratingFinished(() =>
             {
-                // MapEvent Setting シーケンス
-                this.MapEventSettingSequence(() =>
+                // Spawnシーケンス
+                this.SpawnSequence(() =>
                 {
-                    Debug.LogFormat("MapEvent Setting Sequence Has Finished", DColor.cyan);
+                    // MapEvent Setting シーケンス
+                    this.MapEventSettingSequence(() =>
+                    {
+                        Debug.LogFormat("MapEvent Setting Sequence Has Finished", DColor.cyan);
+                    });
                 });
+                
+                // TransitionOutEffect再生
+                this.transitionEffectController.PlayOutEffect();
             });
         });
     }
