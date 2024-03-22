@@ -819,6 +819,9 @@ public class UIDialogController : MonoBehaviour
     /// <param name="onFinished"></param>
     public void ShowLevelUpDialog(Transform levelUpDialog, Action onFinished)
     {
+        // ボタン制御無効化
+        this.uIButtonController.DisableButtonTouch();
+        
         // スケール変更
         levelUpDialog.localScale = this.closeScale;
         
@@ -1004,6 +1007,9 @@ public class UIDialogController : MonoBehaviour
             .SetUpdate(true)
             .OnComplete(() =>
             {
+                // ボタン制御有効化
+                this.uIButtonController.EnableButtonTouch();
+                
                 // 初期化
                 this.InitLevelUpDialog();
 
