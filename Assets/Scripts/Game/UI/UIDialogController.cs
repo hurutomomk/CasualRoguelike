@@ -500,6 +500,8 @@ public class UIDialogController : MonoBehaviour
 
     #endregion
     
+    
+    
     #region [06. EventDialog]
     /// <summary>
     /// EventDialog表示
@@ -807,6 +809,8 @@ public class UIDialogController : MonoBehaviour
     
     #endregion
     
+    
+    
     #region [07.LevelUpDialog]
     /// <summary>
     /// LevelDialog表示
@@ -1036,8 +1040,8 @@ public class UIDialogController : MonoBehaviour
 
     #endregion
 
-
-
+    
+    
     #region [08. Status Info Dialog]
 
     /// <summary>
@@ -1047,6 +1051,9 @@ public class UIDialogController : MonoBehaviour
     /// <param name="onFinished"></param>
     public void ShowStatusInfoDialog(Transform statusInfoDialog, Action onFinished)
     {
+        // ボタン制御無効化
+        this.uIButtonController.DisableButtonTouch();
+        
         // スケール変更
         statusInfoDialog.localScale = this.closeScale;
         
@@ -1085,6 +1092,9 @@ public class UIDialogController : MonoBehaviour
                 
                 // スケール変更
                 statusInfoDialog.localScale = this.closeScale;
+                
+                // ボタン制御有効化
+                this.uIButtonController.EnableButtonTouch();
             });
     }
 
