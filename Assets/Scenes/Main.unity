@@ -883,10 +883,10 @@ MonoBehaviour:
   buttonImagesForDisableExceptMovementButton:
   - {fileID: 421575746}
   - {fileID: 598465768}
-  - {fileID: 2061828445}
-  - {fileID: 733106487}
-  - {fileID: 77938769}
-  - {fileID: 1232412267}
+  - {fileID: 623901316}
+  - {fileID: 1427771301}
+  - {fileID: 1227996280}
+  - {fileID: 956845678}
   cameraPointer: {fileID: 184439716}
 --- !u!1 &393967345
 GameObject:
