@@ -304,7 +304,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         this.cameraTransform.DOShakePosition(duration: this.cameraAnim_Duration, strength: this.cameraAnim_Strength)
             .SetEase(this.cameraAnim_Ease)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 onFinished?.Invoke();

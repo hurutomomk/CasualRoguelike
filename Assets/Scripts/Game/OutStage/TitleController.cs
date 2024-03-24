@@ -186,7 +186,7 @@ public class TitleController : MonoBehaviour
                 .From(Vector3.zero)
                 .SetEase(this.stagePopupEase)
                 .SetAutoKill(true)
-                .SetUpdate(true);
+                .SetUpdate(false);
             
             yield return new WaitForSeconds(0.5f);
             
@@ -213,7 +213,7 @@ public class TitleController : MonoBehaviour
             .From(0f)
             .SetEase(this.stageSlideEase)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 DOVirtual.DelayedCall(1f, () =>
@@ -223,7 +223,7 @@ public class TitleController : MonoBehaviour
                         .From(-900f)
                         .SetEase(this.stageSlideEase)
                         .SetAutoKill(true)
-                        .SetUpdate(true)
+                        .SetUpdate(false)
                         .OnComplete(() =>
                         {
                             // コルーチン停止

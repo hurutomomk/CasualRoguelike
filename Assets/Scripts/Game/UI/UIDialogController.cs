@@ -313,7 +313,7 @@ public class UIDialogController : MonoBehaviour
             .From(new Vector3(0f, startYPos, 0f))
             .SetEase(this.diallogEase)
             .SetAutoKill(true)
-            .SetUpdate(true);
+            .SetUpdate(false);
 
         // スケール固定
         dialogTransform.localScale = this.openScale;
@@ -337,7 +337,7 @@ public class UIDialogController : MonoBehaviour
             .From(new Vector3(0f, 0f, 0f))
             .SetEase(this.diallogEase)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 // ボタン押下有効
@@ -376,7 +376,7 @@ public class UIDialogController : MonoBehaviour
             .From(new Vector3(0f, 800f, 0f))
             .SetEase(this.battleDialogEase)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 DOVirtual.DelayedCall(.35f, () =>
@@ -386,7 +386,7 @@ public class UIDialogController : MonoBehaviour
                         .From(new Vector3(0f, 400f, 0f))
                         .SetEase(this.battleDialogEase)
                         .SetAutoKill(true)
-                        .SetUpdate(true)
+                        .SetUpdate(false)
                         .OnComplete(() =>
                         {
                             onFinished?.Invoke();
@@ -421,7 +421,7 @@ public class UIDialogController : MonoBehaviour
             .From(0f)
             .SetEase(Ease.Linear)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 DOVirtual.DelayedCall(0.3f, () =>
@@ -431,7 +431,7 @@ public class UIDialogController : MonoBehaviour
                         .From(new Vector3(0f, 200f, 0f))
                         .SetEase(this.battleDialogEase)
                         .SetAutoKill(true)
-                        .SetUpdate(true)
+                        .SetUpdate(false)
                         .OnComplete(() =>
                         {
                             // GAMEOVER時
@@ -451,7 +451,7 @@ public class UIDialogController : MonoBehaviour
                                         .From(new Vector2(180f, 0f))
                                         .SetEase(Ease.Linear)
                                         .SetAutoKill(true)
-                                        .SetUpdate(true)
+                                        .SetUpdate(false)
                                         .OnComplete(() =>
                                         {
                                             // Player EXP増加
@@ -486,7 +486,7 @@ public class UIDialogController : MonoBehaviour
             .From(new Vector3(0f, 0f, 0f))
             .SetEase(this.battleDialogEase)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 onFinished?.Invoke();
@@ -544,7 +544,7 @@ public class UIDialogController : MonoBehaviour
             .From(this.closeScale)
             .SetEase(this.battleDialogEase)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 DOVirtual.DelayedCall(0.2f, () =>
@@ -569,7 +569,7 @@ public class UIDialogController : MonoBehaviour
             .From(this.openScale)
             .SetEase(this.battleDialogEase)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 // 初期化
@@ -609,7 +609,7 @@ public class UIDialogController : MonoBehaviour
             .From(this.openScale)
             .SetEase(this.battleDialogEase)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 // 初期化
@@ -638,7 +638,7 @@ public class UIDialogController : MonoBehaviour
             .From(this.closeScale)
             .SetEase(this.battleDialogEase)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 DOVirtual.DelayedCall(1f, () =>
@@ -648,7 +648,7 @@ public class UIDialogController : MonoBehaviour
                         .From(this.openScale)
                         .SetEase(this.battleDialogEase)
                         .SetAutoKill(true)
-                        .SetUpdate(true)
+                        .SetUpdate(false)
                         .OnComplete(() =>
                         {
                             // スケール変更
@@ -701,12 +701,12 @@ public class UIDialogController : MonoBehaviour
                     {
                         // 移動アニメーション
                         this.mapEventAnimator.transform.DOLocalMove(new Vector3(0f, 45f, 0f), 0.5f)
-                            .SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(true)
+                            .SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(false)
                             .OnComplete(() =>
                             {
                                 // Log表示アニメーション
                                 this.mapEventLogObj.GetComponent<RectTransform>().DOSizeDelta(new Vector2(180f, 100f), 0.5f)
-                                    .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(true)
+                                    .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(false)
                                     .OnComplete(() =>
                                     {
                                         // ボタン表示
@@ -755,21 +755,21 @@ public class UIDialogController : MonoBehaviour
                             {
                                 // LootedItemImageの移動アニメーション
                                 this.mapEventAnimator.transform.DOLocalMove(new Vector3(0f, 45f, 0f), 0.5f)
-                                    .SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(true)
+                                    .SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(false)
                                     .OnComplete(() =>
                                     {
                                         // LootedShrineのName表示アニメーション
                                         this.lootedShrineNameObj.GetComponent<RectTransform>()
                                             .DOSizeDelta(new Vector2(180f, 20f), 0.5f)
                                             .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true)
-                                            .SetUpdate(true)
+                                            .SetUpdate(false)
                                             .OnComplete(() =>
                                             {
                                                 // LootedShrineのDescription表示アニメーション
                                                 this.lootedShrineDescriptionObj.GetComponent<RectTransform>()
                                                     .DOSizeDelta(new Vector2(180f, 100f), 0.5f)
                                                     .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true)
-                                                    .SetUpdate(true)
+                                                    .SetUpdate(false)
                                                     .OnComplete(() =>
                                                     {
                                                         // ボタン表示
@@ -790,12 +790,12 @@ public class UIDialogController : MonoBehaviour
         {
             // 移動アニメーション
             this.mapEventAnimator.transform.DOLocalMove(new Vector3(0f, 45f, 0f), 0.5f)
-                .SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(true)
+                .SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(false)
                 .OnComplete(() =>
                 {
                     // Log表示アニメーション
                     this.mapEventLogObj.GetComponent<RectTransform>().DOSizeDelta(new Vector2(180f, 100f), 0.5f)
-                        .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(true)
+                        .From(new Vector2(180f, 0f)).SetEase(Ease.Linear).SetAutoKill(true).SetUpdate(false)
                         .OnComplete(() =>
                         {
                             // ボタン表示
@@ -830,7 +830,7 @@ public class UIDialogController : MonoBehaviour
             .From(this.closeScale)
             .SetEase(this.battleDialogEase)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 // アニメーション再生を開始
@@ -874,7 +874,7 @@ public class UIDialogController : MonoBehaviour
             .From(new Vector3(0f, 0f, 0f))
             .SetEase(this.diallogEase)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 // Subtitleの表示アニメーション
@@ -882,7 +882,7 @@ public class UIDialogController : MonoBehaviour
                     .From(new Vector2(180f, 0f))
                     .SetEase(Ease.Linear)
                     .SetAutoKill(true)
-                    .SetUpdate(true)
+                    .SetUpdate(false)
                     .OnComplete(() =>
                     {
                         // StatusBonusボタンを順に表示
@@ -924,7 +924,7 @@ public class UIDialogController : MonoBehaviour
             .From(new Vector2(0f, 20f))
             .SetEase(Ease.Linear)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 // 該当ボタンのボタンコンポネントを有効化
@@ -1004,7 +1004,7 @@ public class UIDialogController : MonoBehaviour
             .From(this.openScale)
             .SetEase(this.battleDialogEase)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 // ボタン制御有効化
@@ -1068,7 +1068,7 @@ public class UIDialogController : MonoBehaviour
             .From(this.closeScale)
             .SetEase(this.battleDialogEase)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 // 終了ボタン
@@ -1090,7 +1090,7 @@ public class UIDialogController : MonoBehaviour
             .From(this.openScale)
             .SetEase(this.battleDialogEase)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 // 終了ボタン
