@@ -539,13 +539,13 @@ public class BattleManager : MonoBehaviour
             .From(new Vector3(-200f, -52f, 0f))
             .SetEase(this.unitEntryEase)
             .SetAutoKill(true)
-            .SetUpdate(true);
+            .SetUpdate(false);
                           
         this.enemyRootTransform.DOLocalMove(new Vector3(-42.5f, 68f, 0f), 0.5f)
             .From(new Vector3(200f, 68f, 0f))
             .SetEase(this.unitEntryEase)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 // StatusViewの表示アニメーション
@@ -562,14 +562,14 @@ public class BattleManager : MonoBehaviour
             .From(new Vector3(-200f, -52f, 0f))
             .SetEase(this.unitEntryEase)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 this.enemyRootTransform.DOLocalMove(new Vector3(-42.5f, 68f, 0f), 0.5f)
                     .From(new Vector3(200f, 68f, 0f))
                     .SetEase(this.unitEntryEase)
                     .SetAutoKill(true)
-                    .SetUpdate(true)
+                    .SetUpdate(false)
                     .OnComplete(() =>
                     {
                         // StatusViewの表示アニメーション
@@ -587,14 +587,14 @@ public class BattleManager : MonoBehaviour
             .From(new Vector3(200f, 68f, 0f))
             .SetEase(this.unitEntryEase)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 this.playerRootTransform.DOLocalMove(new Vector3(50f, -52f, 0f), 0.5f)
                     .From(new Vector3(-200f, -52f, 0f))
                     .SetEase(this.unitEntryEase)
                     .SetAutoKill(true)
-                    .SetUpdate(true)
+                    .SetUpdate(false)
                     .OnComplete(() =>
                     {
                         // StatusViewの表示アニメーション
@@ -613,7 +613,7 @@ public class BattleManager : MonoBehaviour
             .From(new Vector3(-85f, 18f, 0f))
             .SetEase(this.unitEntryEase)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                                   
@@ -623,7 +623,7 @@ public class BattleManager : MonoBehaviour
             .From(new Vector3(85f, 15f, 0f))
             .SetEase(this.unitEntryEase)
             .SetAutoKill(true)
-            .SetUpdate(true)
+            .SetUpdate(false)
             .OnComplete(() =>
             {
                 onFinished?.Invoke();
@@ -657,7 +657,7 @@ public class BattleManager : MonoBehaviour
                 .From(new Vector3(350f, 0f, 0f))
                 .SetEase(Ease.Linear)
                 .SetAutoKill(true)
-                .SetUpdate(true)
+                .SetUpdate(false)
                 .OnComplete(() =>
                 {
                     DOVirtual.DelayedCall(1f, () =>
@@ -667,7 +667,7 @@ public class BattleManager : MonoBehaviour
                             .From(new Vector3(0f, 0f, 0f))
                             .SetEase(Ease.Linear)
                             .SetAutoKill(true)
-                            .SetUpdate(true)
+                            .SetUpdate(false)
                             .OnComplete(() =>
                             {
                                 DOVirtual.DelayedCall(1.25f, () =>
@@ -677,7 +677,7 @@ public class BattleManager : MonoBehaviour
                                         .From(new Vector3(-350f, 0f, 0f))
                                         .SetEase(Ease.Linear)
                                         .SetAutoKill(true)
-                                        .SetUpdate(true)
+                                        .SetUpdate(false)
                                         .OnComplete(() =>
                                         {
                                             // TextGroupObjを非表示Stateに変更
@@ -720,7 +720,7 @@ public class BattleManager : MonoBehaviour
                 .From(new Vector2(180f, 0f))
                 .SetEase(Ease.Linear)
                 .SetAutoKill(true)
-                .SetUpdate(true)
+                .SetUpdate(false)
                 .OnComplete(() =>
                 {
                     DOVirtual.DelayedCall(.5f, () =>
@@ -730,7 +730,7 @@ public class BattleManager : MonoBehaviour
                             .From(new Vector2(180f, 40f))
                             .SetEase(Ease.Linear)
                             .SetAutoKill(true)
-                            .SetUpdate(true)
+                            .SetUpdate(false)
                             .OnComplete(() =>
                             {
                                 DOVirtual.DelayedCall(0.2f, () =>
@@ -1373,9 +1373,6 @@ public class BattleManager : MonoBehaviour
         {
             // Target初期化
             this.targetEnemyTransform = null;
-            
-            // ゲーム再生を再開
-            Time.timeScale = 1f;
         });
         
         // 初期化
