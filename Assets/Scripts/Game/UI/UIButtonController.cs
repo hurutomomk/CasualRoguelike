@@ -160,9 +160,20 @@ public class UIButtonController : MonoBehaviour
     /// </summary>
     [SerializeField]
     private Image cameraPointer;
-    
     #endregion
-    
+
+    #region [07. GameSpeed]
+    /// <summary>
+    /// GameSpeed計算時の分子および分母
+    /// </summary>
+    private int gameSpeedNumer = 1;
+    private int gameSpeedDenom = 3;
+    /// <summary>
+    /// GameSpeed表示のText
+    /// </summary>
+    [SerializeField]
+    private Text GameSpeedButtonText;
+    #endregion
     #endregion
     
     
@@ -514,6 +525,37 @@ public class UIButtonController : MonoBehaviour
     {
         this.cameraPointer.enabled = state;
     }
+    
+    #region [05. Game Speed Change]
+    /// <summary>
+    /// Game Speed Change
+    /// </summary>
+    public void OnClickGameSpeedChangeButton()
+    {
+        // 分子に加算
+        this.gameSpeedNumer += 1;
+        // ボタン押下の度に変わる分子を固定値の分母で割り、余りを計数
+        int gameSpeed = gameSpeedNumer % gameSpeedDenom;
+        
+        // 結果次第でtimescaleを変更
+        switch (gameSpeed)
+        {
+            case 1 :
+                Time.timeScale = 1f;
+                this.GameSpeedButtonText.text = "▶";
+                break;
+            case 2 :
+                Time.timeScale = 1.5f;
+                this.GameSpeedButtonText.text = "▶▶";
+                break;
+            case 0 :
+                Time.timeScale = 2f;
+                this.GameSpeedButtonText.text = "▶▶▶";
+                break;
+        }
+    }
+    #endregion
+    
     #endregion
     
     #endregion
