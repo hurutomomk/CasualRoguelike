@@ -890,6 +890,15 @@ MonoBehaviour:
   - {fileID: 956845678}
   cameraPointer: {fileID: 184439716}
   GameSpeedButtonText: {fileID: 1314917919}
+  speedButton: {fileID: 1023138001}
+  speedSpriteNormal:
+  - {fileID: 21300000, guid: b3da6d0395156a441b202de10f0e02fd, type: 3}
+  - {fileID: 21300000, guid: 37ecf5a182719564da7c8924709a500a, type: 3}
+  - {fileID: 21300000, guid: 43d9fb9a5ab067a4cabb207c05d98c14, type: 3}
+  speedSpritePressed:
+  - {fileID: 21300000, guid: f4d21b0ffaa7a5445bd628d6f42f1d73, type: 3}
+  - {fileID: 21300000, guid: bf49e5e45865cf243a9308a8d5d718fd, type: 3}
+  - {fileID: 21300000, guid: fc35a84fc34a29a489b09a6f57ef5170, type: 3}
 --- !u!1 &393967345
 GameObject:
   m_ObjectHideFlags: 0
@@ -2860,7 +2869,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2871,7 +2880,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300000, guid: bf49e5e45865cf243a9308a8d5d718fd, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -2917,7 +2926,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 37ecf5a182719564da7c8924709a500a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3422,7 +3431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1229390848
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3786,7 +3795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1314917916
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7900,7 +7909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.97647065, g: 0.89019614, b: 0.80392164, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8174,7 +8183,7 @@ RectTransform:
   m_GameObject: {fileID: 2980731679992817065}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2980731680851083935}
@@ -8184,7 +8193,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 35.768017, y: -140.63242}
-  m_SizeDelta: {x: 32, y: 6}
+  m_SizeDelta: {x: 60, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2980731679992817076
 MonoBehaviour:
@@ -8255,7 +8264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.97647065, g: 0.89019614, b: 0.80392164, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9268,7 +9277,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 8
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -9279,7 +9288,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: S
+  m_Text: Status Info
 --- !u!222 &2980731680851083929
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9305,7 +9314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2980731680851083935
 RectTransform:
   m_ObjectHideFlags: 0
