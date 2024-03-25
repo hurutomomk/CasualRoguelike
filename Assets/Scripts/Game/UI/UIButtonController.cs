@@ -169,10 +169,24 @@ public class UIButtonController : MonoBehaviour
     private int gameSpeedNumer = 1;
     private int gameSpeedDenom = 3;
     /// <summary>
-    /// GameSpeed表示のText
+    /// GameSpeed変更ボタン
     /// </summary>
     [SerializeField]
-    private Text GameSpeedButtonText;
+    private Button speedButton;
+    /// <summary>
+    /// PressedSprite変更のためのSpriteState
+    /// </summary>
+    private SpriteState spriteState;
+    /// <summary>
+    /// GameSpeed変更ボタンのSprite（通常時）
+    /// </summary>
+    [SerializeField]
+    private Sprite[] speedSpriteNormal;
+    /// <summary>
+    /// GameSpeed変更ボタンのSprite（押下時）
+    /// </summary>
+    [SerializeField]
+    private Sprite[] speedSpritePressed;
     #endregion
     #endregion
     
@@ -538,21 +552,19 @@ public class UIButtonController : MonoBehaviour
         int gameSpeed = gameSpeedNumer % gameSpeedDenom;
         
         // 結果次第でtimescaleを変更
-        switch (gameSpeed)
+        Time.timeScale = gameSpeed switch
         {
-            case 1 :
-                Time.timeScale = 1f;
-                this.GameSpeedButtonText.text = "▶";
-                break;
-            case 2 :
-                Time.timeScale = 1.5f;
-                this.GameSpeedButtonText.text = "▶▶";
-                break;
-            case 0 :
-                Time.timeScale = 2f;
-                this.GameSpeedButtonText.text = "▶▶▶";
-                break;
-        }
+            1 => 1f,
+            2 => 1.5f,
+            0 => 2f,
+            _ => Time.timeScale
+        };
+
+        // ButtonSpriteの変更
+        this.speedButton.image.sprite = this.speedSpriteNormal[gameSpeed];
+        // PressedButtonSpriteの変更
+        this.spriteState.pressedSprite = this.speedSpritePressed[gameSpeed];
+        this.speedButton.spriteState = this.spriteState;
     }
     #endregion
     
