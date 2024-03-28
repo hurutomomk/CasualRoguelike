@@ -7,7 +7,6 @@ using UnityEngine;
 public class MapEventManager : MonoBehaviour
 {
     #region [var]
-
     [Header(" --- Reference")]
     /// <summary>
     /// UIDialogController
@@ -92,9 +91,7 @@ public class MapEventManager : MonoBehaviour
     private float commonRate = 0f;
     [SerializeField]
     private float epicRate = 0f;
-    
     #endregion
-    
     
     
     
@@ -183,10 +180,7 @@ public class MapEventManager : MonoBehaviour
 
         onFinished?.Invoke();
     }
-
     #endregion
-    
-    
     
     #region [002. SetDoorKey]
     /// <summary>
@@ -229,10 +223,7 @@ public class MapEventManager : MonoBehaviour
 
         onFinished?.Invoke();
     }
-
     #endregion
-
-    
     
     #region [003. SetEnemy]
     /// <summary>
@@ -278,8 +269,6 @@ public class MapEventManager : MonoBehaviour
         onFinished?.Invoke();
     }
     #endregion
-    
-    
     
     #region [004. SetShrine]
     /// <summary>
@@ -331,8 +320,6 @@ public class MapEventManager : MonoBehaviour
     #endregion
     
     #endregion
-
-    
     
     #region [02. Looting Shrine]
     /// <summary>
@@ -362,10 +349,7 @@ public class MapEventManager : MonoBehaviour
         
         return shrine;
     }
-
     #endregion
-    
-    
 
     #region [03. Event Execution]
     /// <summary>

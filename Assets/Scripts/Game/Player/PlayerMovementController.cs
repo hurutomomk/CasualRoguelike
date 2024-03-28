@@ -112,6 +112,7 @@ public class PlayerMovementController : MonoBehaviour
     #endregion
     
     
+    
     #region [func]
 
     #region [00. コンストラクタ] 

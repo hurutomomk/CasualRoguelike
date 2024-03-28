@@ -7,24 +7,22 @@ public class MapGeneratingManager : MonoBehaviour
 {
     #region [var]
 
-    #region [01. instance]
+    #region [01. Instance]
     /// <summary>
     /// インスタンス
     /// </summary>
     public static MapGeneratingManager Instance { get; private set; }
     #endregion
     
-    #region [02. reference]
-    
+    #region [02. Reference]
     /// <summary>
     /// MapCollector
     /// </summary>
     [SerializeField]
     private MapCollector mapCollector;
-    
     #endregion
     
-    #region [03. map data]
+    #region [03. Map Data]
     /// <summary>
     /// MapList : Start
     /// </summary>
@@ -36,7 +34,7 @@ public class MapGeneratingManager : MonoBehaviour
     }
     #endregion
     
-    #region [04. trasform]
+    #region [04. Trasform]
     /// <summary>
     /// 生成MapのRoot
     /// </summary>
@@ -44,7 +42,7 @@ public class MapGeneratingManager : MonoBehaviour
     public Transform mapRoot;
     #endregion
     
-    #region [05. information]
+    #region [05. Information]
     /// <summary>
     /// 最大MapCollectNum
     /// </summary>
@@ -56,7 +54,7 @@ public class MapGeneratingManager : MonoBehaviour
     }
     #endregion
 
-    #region [06. coroutine]
+    #region [06. Coroutine]
     /// <summary>
     /// ドア数が０になったマップの数
     /// </summary>
@@ -68,19 +66,17 @@ public class MapGeneratingManager : MonoBehaviour
     #endregion
 
     #region [07. Callback]
-
     /// <summary>
     /// Map生成終了コールバック
     /// </summary>
     private Action onFinishedMapGenerating;
-
     #endregion
     
     #endregion
 
+    
     
     #region [func]
-
     /// <summary>
     /// コンストラクタ
     /// </summary>
@@ -212,6 +208,5 @@ public class MapGeneratingManager : MonoBehaviour
     //         this.ResetMapGeneratingData();
     //     }
     // }
-
     #endregion
 }

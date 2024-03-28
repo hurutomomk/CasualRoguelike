@@ -160,9 +160,6 @@ public class EnemyStatusController : MonoBehaviour
             BattleManager.Instance.EnemyDamageLogAnimator,
             BattleManager.Instance.EnemyDamageLogText, calculatedDamage);
         
-        // UnitActionLogを表示
-        //BattleManager.Instance.UnitActionLog($"{this.enemyName}は\n{calculatedDamage}のダメージを受けた", () => { });
-        
         // HPのStatus更新
         var newHp = this.currentHp - calculatedDamage;
         if (newHp <= 0) newHp = 0;

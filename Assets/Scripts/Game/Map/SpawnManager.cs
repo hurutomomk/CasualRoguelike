@@ -8,7 +8,6 @@ public class SpawnManager : MonoBehaviour
     #region [var]
     
     #region [01.Spawn Player]
-    
     [Header(" --- Spawn Player 関連")]
     /// <summary>
     /// PlayerRoot Transform
@@ -30,10 +29,10 @@ public class SpawnManager : MonoBehaviour
     #endregion
     
     
+    
     #region [func]
 
     #region [00.コンストラクタ]
-    
     /// <summary>
     /// コンストラクタ
     /// </summary>
@@ -42,11 +41,9 @@ public class SpawnManager : MonoBehaviour
         // 破棄不可
         DontDestroyOnLoad(this.gameObject);
     }
-    
     #endregion
 
     #region [01.Spawn Player]
-    
     /// <summary>
     /// Spawn Player
     /// </summary>
@@ -84,7 +81,6 @@ public class SpawnManager : MonoBehaviour
         
         onFinished?.Invoke();
     }
-
     #endregion
     
     #endregion

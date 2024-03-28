@@ -88,13 +88,9 @@ public class UIDialogController : MonoBehaviour
     private float openSpeed_LongDialog = 0.2f;
     [SerializeField]
     private float openSpeed_ShortDialog = 0.2f;
-    
     #endregion
     
-    #region [02. Item Dialog]
-    #endregion
-    
-    #region [03. BattleDialog]
+    #region [02. BattleDialog]
     /// <summary>
     /// BattleDialogのアニメーションパターン
     /// </summary>
@@ -129,8 +125,7 @@ public class UIDialogController : MonoBehaviour
     private Text resultExpLogText;
     #endregion
     
-    #region [04. EvnetDialog]
-    
+    #region [03. EvnetDialog]
     [Header(" --- Event Dialog")]
     /// <summary>
     /// MapEventが発生しているMapのMapInfo
@@ -180,7 +175,7 @@ public class UIDialogController : MonoBehaviour
     private GameObject closeButton_EventDialog;
     #endregion
     
-    #region [05. LevelUpDialog]
+    #region [04. LevelUpDialog]
     [Header(" --- LevelUp Dialog")]
     /// <summary>
     /// LevelUpDialogのTitleObj
@@ -236,6 +231,7 @@ public class UIDialogController : MonoBehaviour
     #endregion
 
 
+    
     #region [func]
 
     #region [01. コンストラクタ]
@@ -312,8 +308,6 @@ public class UIDialogController : MonoBehaviour
             });
     }
     #endregion
-    
-    
     
     #region [05. BattleDialog]
     /// <summary>
@@ -458,10 +452,7 @@ public class UIDialogController : MonoBehaviour
                 battleDialog.localScale = this.closeScale;
             });
     }
-
     #endregion
-    
-    
     
     #region [06. EventDialog]
     /// <summary>
@@ -767,10 +758,7 @@ public class UIDialogController : MonoBehaviour
                 });;
         }
     }
-    
     #endregion
-    
-    
     
     #region [07.LevelUpDialog]
     /// <summary>
@@ -1004,13 +992,9 @@ public class UIDialogController : MonoBehaviour
         this.closeButton_LevelUpDialog.SetActive(false);
         this.buttonPushedCount = 0;
     }
-
     #endregion
-
-    
     
     #region [08. Status Info Dialog]
-
     /// <summary>
     /// StatusInfoDialog表示
     /// </summary>
@@ -1064,10 +1048,7 @@ public class UIDialogController : MonoBehaviour
                 this.uIButtonController.EnableButtonTouch();
             });
     }
-
     #endregion
-    
-
 
     #endregion
 }

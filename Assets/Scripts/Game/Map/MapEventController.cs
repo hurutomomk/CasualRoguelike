@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class MapEventController : MonoBehaviour
 {
     #region [var]
-
     [Header(" --- Map Event Common")]
     /// <summary>
     /// ScriptableIbject上のMapEvent情報 
@@ -36,7 +35,6 @@ public class MapEventController : MonoBehaviour
 
 
     #region [func]
-
     /// <summary>
     /// コンストラクタ
     /// </summary>

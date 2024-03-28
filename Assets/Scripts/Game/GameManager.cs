@@ -8,12 +8,10 @@ public class GameManager : MonoBehaviour
     #region [var]
 
     #region [01. Instance]
-    
     /// <summary>
     /// インスタンス
     /// </summary>
     public static GameManager Instance { get; private set; }
-    
     #endregion
 
     #region [02. 参照]
@@ -52,7 +50,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     private PlayerStatusManager playerStatusManager;
-    
     #endregion
     
     #endregion
@@ -89,8 +86,6 @@ public class GameManager : MonoBehaviour
     }
     #endregion
     
-    
-    
     #region [01. Logo画面]
     /// <summary>
     /// Logo表示
@@ -116,8 +111,6 @@ public class GameManager : MonoBehaviour
     }
     #endregion
     
-    
-    
     #region [02. Title画面]
     /// <summary>
     /// Title表示
@@ -128,8 +121,6 @@ public class GameManager : MonoBehaviour
         this.titleController.ShowTitle();
     }
     #endregion
-    
-    
     
     #region [03. Transition Effect]
     /// <summary>
@@ -167,8 +158,6 @@ public class GameManager : MonoBehaviour
     }
     #endregion
     
-    
-    
     #region [04. Map Generating Sequence]
     /// <summary>
     /// Map自動生成シーケンス
@@ -179,8 +168,6 @@ public class GameManager : MonoBehaviour
         this.mapGeneratingManager.StartGenerating(this.mapGeneratingManager.WaitForMapGeneratingFinishAsync);
     }
     #endregion
-    
-
     
     #region [05. Spawn Sequence]
     /// <summary>
@@ -197,10 +184,7 @@ public class GameManager : MonoBehaviour
             onFinished?.Invoke();
         });
     } 
-
     #endregion
-    
-    
     
     #region [06. MapEvent Setting Sequence]
     /// <summary>
@@ -215,7 +199,6 @@ public class GameManager : MonoBehaviour
             onFinished?.Invoke();
         });
     } 
-
     #endregion
     
     #endregion
