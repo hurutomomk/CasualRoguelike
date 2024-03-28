@@ -29,7 +29,6 @@ public class UIButtonController : MonoBehaviour
     #endregion
 
     #region [02. ボタン]
-
     [Header(" --- Buttons")]
     /// <summary>
     /// セッティングメニューボタン
@@ -137,14 +136,6 @@ public class UIButtonController : MonoBehaviour
     /// 移動ボタン表示の切り替えトリガー
     /// </summary>
     private bool isButtonForCameraMovement = false;
-    /// <summary>
-    /// HUD表示の切り替えトリガー
-    /// </summary>
-    private bool isHUDActivationOff = false;
-    /// <summary>
-    /// StatusBox表示の切り替えトリガー
-    /// </summary>
-    private bool isStatusInfoShown = false;
     #endregion
     
     #region [05. コールバック]
@@ -188,8 +179,8 @@ public class UIButtonController : MonoBehaviour
     [SerializeField]
     private Sprite[] speedSpritePressed;
     #endregion
-    #endregion
     
+    #endregion
     
     
     
@@ -210,7 +201,6 @@ public class UIButtonController : MonoBehaviour
     #endregion
 
     #region [02. ボタンのステート管理]
-    
     /// <summary>
     /// 移動ボタンの表示切り替え
     /// </summary>
@@ -407,11 +397,9 @@ public class UIButtonController : MonoBehaviour
         else
             this.statusInfoButton.GetComponent<Image>().color = Color.grey;
     }
-    
     #endregion
     
     #region [03. ボタン押下処理]
-    
     /// <summary>
     /// 移動ボタンの表示切り替えボタン押下時の処理
     /// </summary>
@@ -539,6 +527,7 @@ public class UIButtonController : MonoBehaviour
     {
         this.cameraPointer.enabled = state;
     }
+    #endregion
     
     #region [05. Game Speed Change]
     /// <summary>
@@ -566,8 +555,6 @@ public class UIButtonController : MonoBehaviour
         this.spriteState.pressedSprite = this.speedSpritePressed[gameSpeed];
         this.speedButton.spriteState = this.spriteState;
     }
-    #endregion
-    
     #endregion
     
     #endregion

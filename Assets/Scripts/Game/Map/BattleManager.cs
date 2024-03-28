@@ -9,7 +9,6 @@ public class BattleManager : MonoBehaviour
     #region [var]
 
     #region [00. コンストラクタ]
-
     /// <summary>
     /// インスタンス
     /// </summary>
@@ -21,22 +20,22 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     private UIDialogController uIDialogController;
-    
     /// <summary>
     /// スタート時のUnitの座標
     /// </summary>
     private Vector3 playerStartPos = new Vector3(-200f, -112.7f, 0f);
     private Vector3 enemyStartPos = new Vector3(200f, 80f, 0f);
-
+    
+    [Header(" --- Enemy")]
+    /// <summary>
+    /// EnemyBattlePrefab
+    /// </summary>
+    [SerializeField]
+    private GameObject enemyPrefab;
     #endregion
     
     #region [01. Battle開始]
-
     [Header(" --- Enemy Data")]
-    /// <summary>
-    /// EnemyCollider
-    /// </summary>
-    private Transform targetEnemyTransform;
     /// <summary>
     /// EnemyInfo
     /// </summary>
@@ -193,46 +192,6 @@ public class BattleManager : MonoBehaviour
     #endregion
     
     #region [02. Battle Log 関連]
-
-    [Header(" --- Log On Battle Start")]
-    /// <summary>
-    /// BattleStart時表示するLogのオブイェークトおよびそのText2種
-    /// </summary>
-    [SerializeField]
-    private GameObject battleStartLogObj;
-    [SerializeField]
-    private Text battleStartLogText_1;
-    [SerializeField]
-    private Text battleStartLogText_2;
-    /// <summary>
-    /// Player奇襲成功時Logの表示文
-    /// </summary>
-    [SerializeField,TextArea(2,10)]
-    private String playerFirstStrikeSucceededString_1;
-    [SerializeField,TextArea(2,10)]
-    private String playerFirstStrikeSucceededString_2;
-    /// <summary>
-    /// Player奇襲失敗時Logの表示文
-    /// </summary>
-    [SerializeField,TextArea(2,10)]
-    private String playerFirstStrikeFailedString_1;
-    [SerializeField,TextArea(2,10)]
-    private String playerFirstStrikeFailedString_2;
-    /// <summary>
-    /// Enemy奇襲成功時Logの表示文
-    /// </summary>
-    [SerializeField,TextArea(2,10)]
-    private String enemyFirstStrikeSucceededString_1;
-    [SerializeField,TextArea(2,10)]
-    private String enemyFirstStrikeSucceededString_2;
-    /// <summary>
-    /// Enemy奇襲失敗時Logの表示文
-    /// </summary>
-    [SerializeField,TextArea(2,10)]
-    private String enemyFirstStrikeFailedString_1;
-    [SerializeField,TextArea(2,10)]
-    private String enemyFirstStrikeFailedString_2;
-    
     [Header(" --- Log On Main Battle")]
     /// <summary>
     /// MainBattleのLogおよびLogText
@@ -241,11 +200,9 @@ public class BattleManager : MonoBehaviour
     private GameObject mainBattleLogObj;
     [SerializeField]
     private Text mainBattleLogText;
-
     #endregion
     
     #region [03. MainBattle]
-    
     [Header(" --- Unit Action Probability Offset")]
     /// <summary>
     /// Unit行動選定時の確率Offset
@@ -286,14 +243,20 @@ public class BattleManager : MonoBehaviour
     [SerializeField]
     private Text enemyDamageLogText;
     public Text EnemyDamageLogText { get => this.enemyDamageLogText; }
+    
+    /// <summary>
+    /// UnitのパニックパターンのBoolスイッチ
+    /// </summary>
+    private bool isUnitPanicked = false;
     #endregion
     
     #endregion
+    
+    
     
     #region [func]
     
     #region [00. コンストラクタ]
-
     /// <summary>
     /// コンストラクタ
     /// </summary>
@@ -327,16 +290,6 @@ public class BattleManager : MonoBehaviour
     #region [01. Battle開始]
 
     #region [001. DataSet 関連]
-    
-    
-
-    /// <summary>
-    /// EnemyBattlePrefab
-    /// </summary>
-    [SerializeField]
-    private GameObject enemyPrefab;
-
-    
     /// <summary>
     /// Enemyの各種データをセット
     /// </summary>
@@ -461,7 +414,6 @@ public class BattleManager : MonoBehaviour
     #endregion
               
     #region [002. BattleStart時（MainBattle開始前）]
-
     /// <summary>
     /// BattleStart
     /// Player奇襲時：firstStrikeUnitNum = 0
@@ -475,54 +427,8 @@ public class BattleManager : MonoBehaviour
                                      
         // UnitのStatusをBattleStatusViewにセット
         this.SetUnitStatusData();                          
-                                     
-        // // ターン保有Unitの奇襲成功可否をランダムで選定
-        // int randomNum = UnityEngine.Random.Range(0, 2);
-        // 
-        // // 選定結果によって分岐
-        // if (firstStrikeUnitNum == 0)                              
-        // {
-        //     if (randomNum == 0)
-        //     {
-        //         // Unit登場アニメーションの再生：通常Battle時
-        //         this.UnitEntryAnimOnNormalBattle(() =>
-        //         {
-        //             // Battle開始直前のLog表示アニメーション
-        //             this.BattleStartLog(this.playerFirstStrikeFailedString_1, this.playerFirstStrikeFailedString_2, 1);
-        //         });
-        //     }
-        //     else
-        //     {
-        //         // Unit登場アニメーションの再生：Player奇襲Battle時
-        //         this.UnitEntryAnimOnPlayerFirstStrikeBattle(() =>
-        //         {
-        //             // Battle開始直前のLog表示アニメーション
-        //             this.BattleStartLog(this.playerFirstStrikeSucceededString_1, this.playerFirstStrikeSucceededString_2, 2);
-        //         });
-        //     }
-        // }
-        // else
-        // {
-        //     if (randomNum == 0)
-        //     {
-        //         // Unit登場アニメーションの再生：通常Battle時
-        //         this.UnitEntryAnimOnNormalBattle(() =>
-        //         {
-        //             // Battle開始直前のLog表示アニメーション
-        //             this.BattleStartLog(this.enemyFirstStrikeFailedString_1, this.enemyFirstStrikeFailedString_2, 3);
-        //         });
-        //     }
-        //     else
-        //     {
-        //         // Unit登場アニメーションの再生：Enemy奇襲Battle時
-        //         this.UnitEntryAnimOnEnemyFirstStrikeBattle(() =>
-        //         {
-        //             // Battle開始直前のLog表示アニメーション
-        //             this.BattleStartLog(this.enemyFirstStrikeSucceededString_1, this.enemyFirstStrikeSucceededString_2, 4);
-        //         });
-        //     }
-        // }                          
-        
+               
+        // Unit登場アニメーション
         this.UnitEntryAnimOnNormalBattle(() =>
         { 
             // Battle開始
@@ -552,56 +458,6 @@ public class BattleManager : MonoBehaviour
                 this.BattleStatusViewAnim(()=>{ onFinished?.Invoke(); });
             });
     }
-                      
-    /// <summary>
-    /// Unit登場アニメーションの再生：Player奇襲Battle時
-    /// </summary>
-    private void UnitEntryAnimOnPlayerFirstStrikeBattle(Action onFinished)
-    {
-        this.playerRootTransform.DOLocalMove(new Vector3(50f, -52f, 0f), 0.5f)
-            .From(new Vector3(-200f, -52f, 0f))
-            .SetEase(this.unitEntryEase)
-            .SetAutoKill(true)
-            .SetUpdate(false)
-            .OnComplete(() =>
-            {
-                this.enemyRootTransform.DOLocalMove(new Vector3(-42.5f, 68f, 0f), 0.5f)
-                    .From(new Vector3(200f, 68f, 0f))
-                    .SetEase(this.unitEntryEase)
-                    .SetAutoKill(true)
-                    .SetUpdate(false)
-                    .OnComplete(() =>
-                    {
-                        // StatusViewの表示アニメーション
-                        this.BattleStatusViewAnim(()=>{ onFinished?.Invoke(); });
-                    });
-            });
-    }
-                      
-    /// <summary>
-    /// Unit登場アニメーションの再生：Enemy奇襲Battle時
-    /// </summary>
-    private void UnitEntryAnimOnEnemyFirstStrikeBattle(Action onFinished)
-    {
-        this.enemyRootTransform.DOLocalMove(new Vector3(-42.5f, 68f, 0f), 0.5f)
-            .From(new Vector3(200f, 68f, 0f))
-            .SetEase(this.unitEntryEase)
-            .SetAutoKill(true)
-            .SetUpdate(false)
-            .OnComplete(() =>
-            {
-                this.playerRootTransform.DOLocalMove(new Vector3(50f, -52f, 0f), 0.5f)
-                    .From(new Vector3(-200f, -52f, 0f))
-                    .SetEase(this.unitEntryEase)
-                    .SetAutoKill(true)
-                    .SetUpdate(false)
-                    .OnComplete(() =>
-                    {
-                        // StatusViewの表示アニメーション
-                        this.BattleStatusViewAnim(()=>{ onFinished?.Invoke(); });
-                    });
-            });
-    }
                   
     /// <summary>
     /// StatusViewのアニメーション再生
@@ -629,77 +485,11 @@ public class BattleManager : MonoBehaviour
                 onFinished?.Invoke();
             });
     }
-    
     #endregion
 
     #endregion
 
     #region [02. Battle Log 関連]
-
-    /// <summary>
-    /// BattleStart後半ののLog表示アニメーション
-    /// </summary>
-    /// <param name="textGroupObj"></param>
-    /// <param name="onFinished"></param>
-    private void BattleStartLog(string logString_1, string logString_2, int firstStrikeType)
-    {
-        // LogTextの中身を指定
-        this.battleStartLogText_1.text = logString_1;
-        this.battleStartLogText_2.text = logString_2;
-        
-        DOVirtual.DelayedCall(.2f, () =>
-        {
-            // TextGroupObjを表示Stateに変更
-            this.battleStartLogObj.SetActive(true);
-            
-            // Anim⓵
-            this.battleStartLogObj.transform.DOLocalMove(new Vector3(0f, 0f, 0f), .5f)
-                .From(new Vector3(350f, 0f, 0f))
-                .SetEase(Ease.Linear)
-                .SetAutoKill(true)
-                .SetUpdate(false)
-                .OnComplete(() =>
-                {
-                    DOVirtual.DelayedCall(1f, () =>
-                    {
-                        // Anim⓶
-                        this.battleStartLogObj.transform.DOLocalMove(new Vector3(-350f, 0f, 0f), .5f)
-                            .From(new Vector3(0f, 0f, 0f))
-                            .SetEase(Ease.Linear)
-                            .SetAutoKill(true)
-                            .SetUpdate(false)
-                            .OnComplete(() =>
-                            {
-                                DOVirtual.DelayedCall(1.25f, () =>
-                                {
-                                    // Anim⓷
-                                    this.battleStartLogObj.transform.DOLocalMove(new Vector3(-700f, 0f, 0f), .5f)
-                                        .From(new Vector3(-350f, 0f, 0f))
-                                        .SetEase(Ease.Linear)
-                                        .SetAutoKill(true)
-                                        .SetUpdate(false)
-                                        .OnComplete(() =>
-                                        {
-                                            // TextGroupObjを非表示Stateに変更
-                                            this.battleStartLogObj.SetActive(false);
-                                            
-                                            // LogText初期化
-                                            this.battleStartLogText_1.text = null;
-                                            this.battleStartLogText_2.text = null;
-                                
-                                            // 座標初期化
-                                            this.battleStartLogObj.transform.localPosition = new Vector3(350f, 0f, 0f);
-                                                        
-                                            // Battle開始
-                                            //this.MainBattle(firstStrikeType);
-                                        });
-                                });
-                            });
-                    });
-                });
-        });
-    }
-    
     /// <summary>
     /// UnitAction時のLog表示アニメーション
     /// </summary>
@@ -748,22 +538,20 @@ public class BattleManager : MonoBehaviour
                 });
         });
     }
-
     #endregion
     
     #region [03. MainBattle]
 
     #region [000. 開始]
-
-     /// <summary>
-     /// Battle開始
-     /// </summary>
-     private void MainBattle()
-     {
-         this.PlayerActionTurn();
-     }
-
-     #endregion
+    /// <summary>
+    /// Battle開始
+    /// </summary>
+    private void MainBattle()
+    {
+        // Playerターンから開始
+        this.PlayerActionTurn();
+    }
+    #endregion
 
     #region [001. Playerの行動パターン]
     /// <summary>
@@ -1221,9 +1009,6 @@ public class BattleManager : MonoBehaviour
             onFinished?.Invoke();
         });
     }
-
-    private bool isUnitPanicked = false;
-    
     #endregion
     
     #region [003. Animation制御]
@@ -1340,7 +1125,6 @@ public class BattleManager : MonoBehaviour
     #endregion
     
     #region [04. Battle終了]
-
     /// <summary>
     /// EndLogの表示
     /// </summary>
@@ -1371,8 +1155,7 @@ public class BattleManager : MonoBehaviour
         // BattleDialog非表示
         this.uIDialogController.CloseBattleDialog(this.uIDialogController.Dialog_Battle.transform, () =>
         {
-            // Target初期化
-            this.targetEnemyTransform = null;
+            
         });
         
         // 初期化

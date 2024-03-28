@@ -67,7 +67,6 @@ public class TitleController : MonoBehaviour
     /// スキップボタン押下是非のトリガー
     /// </summary>
     private bool isSkipped = false;
-    
     #endregion
     
     #endregion
@@ -76,7 +75,6 @@ public class TitleController : MonoBehaviour
     #region [func]
 
     #region [00. コンストラクタ]
-
     /// <summary>
     /// コンストラクタ
     /// </summary>
@@ -85,7 +83,6 @@ public class TitleController : MonoBehaviour
         // インスタンス
         Instance = this;
     }
-
     #endregion
 
     #region [01. UI表示]

@@ -9,7 +9,6 @@ public class PlayerMovementManager : MonoBehaviour
     #region [var]
 
     #region [00. コンストラクタ]
-
     /// <summary>
     /// インスタンス
     /// </summary>
@@ -26,11 +25,9 @@ public class PlayerMovementManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     private UIDialogController uIDialogController;
-    
     #endregion
     
-    #region [02. メイン制御]
-   
+    #region [01. メイン制御]
     [Header(" --- コルーチン")]
     /// <summary>
     /// 一時停止および再開用のIEnumerator
@@ -44,7 +41,7 @@ public class PlayerMovementManager : MonoBehaviour
     private MapInfo mapInfo = null;
     #endregion
 
-    #region [03. Map Info 取得関連]
+    #region [02. Map Info 取得関連]
     /// <summary>
     /// 移動可能方向のトリガー
     /// </summary>
@@ -192,8 +189,6 @@ public class PlayerMovementManager : MonoBehaviour
     }
     #endregion
     
-    
-    
     #region [003. Check Event Turn]
     /// <summary>
     /// CheckEventコルーチン開始
@@ -319,7 +314,6 @@ public class PlayerMovementManager : MonoBehaviour
         this.uIbuttonController.SetEachMovementButtonEnableState(this.uIbuttonController.SouthButton, this.canMoveToSouth);
         this.uIbuttonController.SetEachMovementButtonEnableState(this.uIbuttonController.WestButton, this.canMoveToWest);
     }
-    
     #endregion
     
     #endregion

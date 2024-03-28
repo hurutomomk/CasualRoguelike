@@ -157,7 +157,6 @@ public class PlayerStatusManager : MonoBehaviour
     #endregion
 
     #region [01. Set Status]
-
     /// <summary>
     /// PlayerStatusをセット
     /// </summary>
@@ -540,7 +539,6 @@ public class PlayerStatusManager : MonoBehaviour
             
         }
     }
-    
     #endregion
     
     #region [05. Shrine取得時のステータス変動処理]

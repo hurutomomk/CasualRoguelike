@@ -5,14 +5,14 @@ public class MapCollector : MonoBehaviour
 {
     #region [var]
 
-    #region [01. instance]
+    #region [01. Instance]
     /// <summary>
     /// インスタンス
     /// </summary>
     public static MapCollector Instance { get; set; }
     #endregion
     
-    #region [02. map data]
+    #region [02. Map Data]
     /// <summary>
     /// 生成したMapのリスト
     /// </summary>
@@ -27,7 +27,7 @@ public class MapCollector : MonoBehaviour
     }
     #endregion
     
-    #region [03. temporary saving info]
+    #region [03. Temporary Saving Info]
     /// <summary>
     /// 座標検索でマッチしたマップのGameObjectを一時的に保存
     /// </summary>
@@ -42,7 +42,6 @@ public class MapCollector : MonoBehaviour
     
     
     #region [func]
-
     /// <summary>
     /// コンストラクタ
     /// </summary>
@@ -109,6 +108,5 @@ public class MapCollector : MonoBehaviour
         // リスト 
         this.collectedMapList.Clear();
     }
-
     #endregion
 }

@@ -36,17 +36,6 @@ public class UIDialogController : MonoBehaviour
     #region [01. General]
     [Header(" --- Dialog Objects")]
     /// <summary>
-    /// Game画面タッチ不可にするための暗幕
-    /// </summary>
-    [SerializeField]
-    private GameObject curtain;
-    /// <summary>
-    /// ItemDialogのGameObject
-    /// </summary>
-    [SerializeField]
-    private GameObject dialog_Shrine;
-    public GameObject Dialog_Item { get => this.dialog_Shrine; }
-    /// <summary>
     /// StatusInfoDialogのGameObject
     /// </summary>
     [SerializeField]
@@ -99,34 +88,9 @@ public class UIDialogController : MonoBehaviour
     private float openSpeed_LongDialog = 0.2f;
     [SerializeField]
     private float openSpeed_ShortDialog = 0.2f;
-    
     #endregion
     
-    #region [02. Item Dialog]
-    #endregion
-    
-    #region [03. TurnDialog]
-    /// <summary>
-    /// ターン表示Dialog：Player`s Turn
-    /// </summary>
-    [Header(" --- Turn Dialog")]
-    [SerializeField]
-    private Transform playerTurnDialog;
-    public Transform PlayerTurnDialog { get => this.playerTurnDialog; }
-    /// <summary>
-    /// ターン表示Dialog：Enemy`s Turn
-    /// </summary>
-    [SerializeField]
-    private Transform enemyTurnDialog;
-    public Transform EnemyTurnDialog { get => this.enemyTurnDialog; }
-    /// <summary>
-    /// ターン表示Dialogのアニメーションパターン
-    /// </summary>
-    [SerializeField]
-    private Ease turnDialogEase;
-    #endregion
-    
-    #region [04. BattleDialog]
+    #region [02. BattleDialog]
     /// <summary>
     /// BattleDialogのアニメーションパターン
     /// </summary>
@@ -161,8 +125,7 @@ public class UIDialogController : MonoBehaviour
     private Text resultExpLogText;
     #endregion
     
-    #region [05. EvnetDialog]
-    
+    #region [03. EvnetDialog]
     [Header(" --- Event Dialog")]
     /// <summary>
     /// MapEventが発生しているMapのMapInfo
@@ -212,7 +175,7 @@ public class UIDialogController : MonoBehaviour
     private GameObject closeButton_EventDialog;
     #endregion
     
-    #region [06. LevelUpDialog]
+    #region [04. LevelUpDialog]
     [Header(" --- LevelUp Dialog")]
     /// <summary>
     /// LevelUpDialogのTitleObj
@@ -268,6 +231,7 @@ public class UIDialogController : MonoBehaviour
     #endregion
 
 
+    
     #region [func]
 
     #region [01. コンストラクタ]
@@ -277,7 +241,6 @@ public class UIDialogController : MonoBehaviour
     private void Awake()
     {
         // Log表示を初期化
-        this.dialog_Shrine.transform.localScale = this.closeScale;
         this.dialog_StatusInfo.transform.localScale = this.closeScale;
         this.dialog_Event.transform.localScale = this.closeScale;
         this.dialog_Battle.transform.localScale = this.closeScale;
@@ -301,9 +264,6 @@ public class UIDialogController : MonoBehaviour
 
         // ボタン押下無効
         this.uIButtonController.DisableButtonTouch();
-        
-        // 暗幕表示
-        this.curtain.SetActive(true);
         
         // スケール変更
         dialogTransform.localScale = this.openScale;
@@ -342,17 +302,12 @@ public class UIDialogController : MonoBehaviour
             {
                 // ボタン押下有効
                 this.uIButtonController.EnableButtonTouch();
-
-                // 暗幕表示
-                this.curtain.SetActive(false);
                 
                 // スケール変更
                 dialogTransform.localScale = this.closeScale;
             });
     }
     #endregion
-    
-    
     
     #region [05. BattleDialog]
     /// <summary>
@@ -497,10 +452,7 @@ public class UIDialogController : MonoBehaviour
                 battleDialog.localScale = this.closeScale;
             });
     }
-
     #endregion
-    
-    
     
     #region [06. EventDialog]
     /// <summary>
@@ -806,10 +758,7 @@ public class UIDialogController : MonoBehaviour
                 });;
         }
     }
-    
     #endregion
-    
-    
     
     #region [07.LevelUpDialog]
     /// <summary>
@@ -1043,13 +992,9 @@ public class UIDialogController : MonoBehaviour
         this.closeButton_LevelUpDialog.SetActive(false);
         this.buttonPushedCount = 0;
     }
-
     #endregion
-
-    
     
     #region [08. Status Info Dialog]
-
     /// <summary>
     /// StatusInfoDialog表示
     /// </summary>
@@ -1103,10 +1048,7 @@ public class UIDialogController : MonoBehaviour
                 this.uIButtonController.EnableButtonTouch();
             });
     }
-
     #endregion
-    
-
 
     #endregion
 }

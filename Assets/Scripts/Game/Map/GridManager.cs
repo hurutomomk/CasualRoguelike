@@ -4,11 +4,14 @@ public class GridManager : MonoBehaviour
 {
     #region [var]
 
-    #region [01. instance]
+    #region [01. Instance]
+    /// <summary>
+    /// インスタンス
+    /// </summary>
     public static GridManager Instance { get; set; }
     #endregion
     
-    #region [02. base grid information]
+    #region [02. Base grid information]
     // マップ座標の間隔
     [SerializeField] 
     private float nextPosXInterval;
@@ -19,6 +22,7 @@ public class GridManager : MonoBehaviour
     #endregion
     
     #endregion
+    
     
     
     #region [func]

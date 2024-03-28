@@ -28,7 +28,6 @@ public class LogoController : MonoBehaviour
     /// </summary>
     [SerializeField]
     private GameObject logoScreen;
-    
     #endregion
     
     #endregion
@@ -107,7 +106,6 @@ public class LogoController : MonoBehaviour
                 onFinished?.Invoke();
             });
     }
-    
     #endregion
     
     #endregion

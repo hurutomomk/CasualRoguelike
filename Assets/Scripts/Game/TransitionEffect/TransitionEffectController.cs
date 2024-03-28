@@ -34,10 +34,11 @@ public class TransitionEffectController : MonoBehaviour
     private float timeForEffectIn = 0.8f;
     [SerializeField]
     private float timeForEffectOut = 0.5f;
-    
     #endregion
     
     #endregion
+    
+    
     
     #region [func]
 

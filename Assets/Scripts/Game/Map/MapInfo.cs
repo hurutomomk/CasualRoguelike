@@ -5,7 +5,6 @@ using UnityEngine;
 public class MapInfo : MonoBehaviour
 {
     #region [var]
-    
     [Header(" --- Map生成 関連")]
     /// <summary>
     /// マップを生成すべきドア方向：North
@@ -139,9 +138,9 @@ public class MapInfo : MonoBehaviour
     [SerializeField]
     private GameObject mapCorridorSprite_W;
     public GameObject MapCorridorSprite_W { get => this.mapCorridorSprite_W; }   
-
     #endregion
 
+    
 
     #region [func]
     /// <summary>
@@ -343,5 +342,4 @@ public class MapInfo : MonoBehaviour
         corridorSpriteObj.SetActive(state);
     }
     #endregion
-
 }

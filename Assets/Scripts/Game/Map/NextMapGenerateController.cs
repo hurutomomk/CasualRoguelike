@@ -7,18 +7,15 @@ public class NextMapGenerateController : MonoBehaviour
 {
     #region [var]
 
-    #region [01. reference]
-
+    #region [01. Reference]
     /// <summary>
     /// Map情報
     /// </summary>
     [SerializeField]
     private MapInfo mapInfo;
-
     #endregion
 
-    #region [02. map data]
-
+    #region [02. Map Data]
 #pragma warning disable 414
     /// <summary>
     /// 確実にドアが存在する場合のトリガー
@@ -61,9 +58,9 @@ public class NextMapGenerateController : MonoBehaviour
 
     #endregion
 
+    
 
     #region [func]
-
     /// <summary>
     /// コンストラクタ
     /// </summary>
