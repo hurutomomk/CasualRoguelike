@@ -137,14 +137,6 @@ public class UIButtonController : MonoBehaviour
     /// 移動ボタン表示の切り替えトリガー
     /// </summary>
     private bool isButtonForCameraMovement = false;
-    /// <summary>
-    /// HUD表示の切り替えトリガー
-    /// </summary>
-    private bool isHUDActivationOff = false;
-    /// <summary>
-    /// StatusBox表示の切り替えトリガー
-    /// </summary>
-    private bool isStatusInfoShown = false;
     #endregion
     
     #region [05. コールバック]

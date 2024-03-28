@@ -36,17 +36,6 @@ public class UIDialogController : MonoBehaviour
     #region [01. General]
     [Header(" --- Dialog Objects")]
     /// <summary>
-    /// Game画面タッチ不可にするための暗幕
-    /// </summary>
-    [SerializeField]
-    private GameObject curtain;
-    /// <summary>
-    /// ItemDialogのGameObject
-    /// </summary>
-    [SerializeField]
-    private GameObject dialog_Shrine;
-    public GameObject Dialog_Item { get => this.dialog_Shrine; }
-    /// <summary>
     /// StatusInfoDialogのGameObject
     /// </summary>
     [SerializeField]
@@ -105,28 +94,7 @@ public class UIDialogController : MonoBehaviour
     #region [02. Item Dialog]
     #endregion
     
-    #region [03. TurnDialog]
-    /// <summary>
-    /// ターン表示Dialog：Player`s Turn
-    /// </summary>
-    [Header(" --- Turn Dialog")]
-    [SerializeField]
-    private Transform playerTurnDialog;
-    public Transform PlayerTurnDialog { get => this.playerTurnDialog; }
-    /// <summary>
-    /// ターン表示Dialog：Enemy`s Turn
-    /// </summary>
-    [SerializeField]
-    private Transform enemyTurnDialog;
-    public Transform EnemyTurnDialog { get => this.enemyTurnDialog; }
-    /// <summary>
-    /// ターン表示Dialogのアニメーションパターン
-    /// </summary>
-    [SerializeField]
-    private Ease turnDialogEase;
-    #endregion
-    
-    #region [04. BattleDialog]
+    #region [03. BattleDialog]
     /// <summary>
     /// BattleDialogのアニメーションパターン
     /// </summary>
@@ -161,7 +129,7 @@ public class UIDialogController : MonoBehaviour
     private Text resultExpLogText;
     #endregion
     
-    #region [05. EvnetDialog]
+    #region [04. EvnetDialog]
     
     [Header(" --- Event Dialog")]
     /// <summary>
@@ -212,7 +180,7 @@ public class UIDialogController : MonoBehaviour
     private GameObject closeButton_EventDialog;
     #endregion
     
-    #region [06. LevelUpDialog]
+    #region [05. LevelUpDialog]
     [Header(" --- LevelUp Dialog")]
     /// <summary>
     /// LevelUpDialogのTitleObj
@@ -277,7 +245,6 @@ public class UIDialogController : MonoBehaviour
     private void Awake()
     {
         // Log表示を初期化
-        this.dialog_Shrine.transform.localScale = this.closeScale;
         this.dialog_StatusInfo.transform.localScale = this.closeScale;
         this.dialog_Event.transform.localScale = this.closeScale;
         this.dialog_Battle.transform.localScale = this.closeScale;
@@ -301,9 +268,6 @@ public class UIDialogController : MonoBehaviour
 
         // ボタン押下無効
         this.uIButtonController.DisableButtonTouch();
-        
-        // 暗幕表示
-        this.curtain.SetActive(true);
         
         // スケール変更
         dialogTransform.localScale = this.openScale;
@@ -342,9 +306,6 @@ public class UIDialogController : MonoBehaviour
             {
                 // ボタン押下有効
                 this.uIButtonController.EnableButtonTouch();
-
-                // 暗幕表示
-                this.curtain.SetActive(false);
                 
                 // スケール変更
                 dialogTransform.localScale = this.closeScale;

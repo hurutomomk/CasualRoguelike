@@ -34,10 +34,6 @@ public class BattleManager : MonoBehaviour
 
     [Header(" --- Enemy Data")]
     /// <summary>
-    /// EnemyCollider
-    /// </summary>
-    private Transform targetEnemyTransform;
-    /// <summary>
     /// EnemyInfo
     /// </summary>
     private Enemy enemyInfo;
@@ -1371,8 +1367,7 @@ public class BattleManager : MonoBehaviour
         // BattleDialog非表示
         this.uIDialogController.CloseBattleDialog(this.uIDialogController.Dialog_Battle.transform, () =>
         {
-            // Target初期化
-            this.targetEnemyTransform = null;
+            
         });
         
         // 初期化
